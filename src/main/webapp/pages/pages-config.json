@@ -23,8 +23,19 @@
   "type" : "LEFTNAV",
   "params" : [ ]
 }, {
+  "name" : "mainpage",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "user",
+    "type" : "integer"
+  } ]
+}, {
   "name" : "rightnav",
   "type" : "RIGHTNAV",
+  "params" : [ ]
+}, {
+  "name" : "setup",
+  "type" : "PAGE",
   "params" : [ ]
 }, {
   "name" : "topnav",

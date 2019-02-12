@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="projectList">
+        <![CDATA[
+        Select a.receiveddate, a.completeddate, a.fees,
+concat(b.firstname, ' ', b.lastname) as preparer, 
+concat(c.firstname, ' ', c.lastname) as reviewer, 
+concat(d.firstname, ' ', d.lastname) as partner, 
+concat(h.firstname, ' ', h.lastname) as user,
+e.status, 
+f.clientname, displayname, 
+g.officename
+from projects as a
+left join users as b on b.id = a.preparerid
+left join users as c on c.id = a.reviewerid
+left join users as d on d.id = a.partnerid
+left join workstatus as e on e.id = a.statusid
+left join clients as f on f.id = a.clientid
+left join offices as g on g.id = a.officeid
+left join users as h on h.id = a.currentuser
+        ]]>
+    </sql-query>
+
+    <sql-query name="projectList__count">
+        <![CDATA[
+        select count(*) from (Select a.receiveddate, a.completeddate, a.fees,
+concat(b.firstname, ' ', b.lastname) as preparer, 
+concat(c.firstname, ' ', c.lastname) as reviewer, 
+concat(d.firstname, ' ', d.lastname) as partner, 
+concat(h.firstname, ' ', h.lastname) as user,
+e.status, 
+f.clientname, displayname, 
+g.officename
+from projects as a
+left join users as b on b.id = a.preparerid
+left join users as c on c.id = a.reviewerid
+left join users as d on d.id = a.partnerid
+left join workstatus as e on e.id = a.statusid
+left join clients as f on f.id = a.clientid
+left join offices as g on g.id = a.officeid
+left join users as h on h.id = a.currentuser) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="usersList">
+        <![CDATA[
+        select id, concat(firstname, ' ', lastname) as user from users 
+order by user
+        ]]>
+    </sql-query>
+
+    <sql-query name="usersList__count">
+        <![CDATA[
+        select count(*) from (select id, concat(firstname, ' ', lastname) as user from users 
+order by user) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="preparersList">
+        <![CDATA[
+        select id, username, firstname, lastname from users where roleid = 1
+        ]]>
+    </sql-query>
+
+    <sql-query name="preparersList__count">
+        <![CDATA[
+        select count(*) from (select id, username, firstname, lastname from users where roleid = 1) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="rolesList">
+        <![CDATA[
+        select id, role from roles
+        ]]>
+    </sql-query>
+
+    <sql-query name="rolesList__count">
+        <![CDATA[
+        select count(*) from (select id, role from roles) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="statusList">
+        <![CDATA[
+        select * from workstatus
+        ]]>
+    </sql-query>
+
+    <sql-query name="statusList__count">
+        <![CDATA[
+        select count(*) from (select * from workstatus) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="dispatcherList">
+        <![CDATA[
+        select id, username, firstname, lastname from users where roleid = 4
+        ]]>
+    </sql-query>
+
+    <sql-query name="dispatcherList__count">
+        <![CDATA[
+        select count(*) from (select id, username, firstname, lastname from users where roleid = 4) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="partnersList">
+        <![CDATA[
+        select id, username, firstname, lastname from users where roleid = 3
+        ]]>
+    </sql-query>
+
+    <sql-query name="partnersList__count">
+        <![CDATA[
+        select count(*) from (select id, username, firstname, lastname from users where roleid = 3) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="reviewersList">
+        <![CDATA[
+        select id, username, firstname, lastname from users where roleid = 2
+        ]]>
+    </sql-query>
+
+    <sql-query name="reviewersList__count">
+        <![CDATA[
+        select count(*) from (select id, username, firstname, lastname from users where roleid = 2) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="clientsList">
+        <![CDATA[
+        select * from clients
+        ]]>
+    </sql-query>
+
+    <sql-query name="clientsList__count">
+        <![CDATA[
+        select count(*) from (select * from clients) wmTempTable
+        ]]>
+    </sql-query>
+</hibernate-mapping>

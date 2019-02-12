@@ -7,5 +7,9 @@
     "userid" : "admin",
     "password" : "admin",
     "roles" : [ "admin" ]
+  }, {
+    "userid" : "srao",
+    "password" : "Altoids5",
+    "roles" : [ "admin" ]
   } ]
 }
