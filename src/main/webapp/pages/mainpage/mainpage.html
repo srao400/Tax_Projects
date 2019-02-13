@@ -17,7 +17,7 @@
                                 <wm-table-column binding="usersByPreparerid.firstname" caption="Preparer" primary-key="false" edit-widget-type="text" related-entity-name="Users" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
                                 <wm-table-column binding="completeddate" caption="Date completed" edit-widget-type="date" type="date" generator="assigned" show="true" readonly="false"></wm-table-column>
                                 <wm-table-column binding="workstatus.notifyrole" caption="Notifyrole" primary-key="false" edit-widget-type="number" related-entity-name="Workstatus" type="integer" generator="assigned" readonly="true"
-                                    show="true"></wm-table-column>
+                                    show="false"></wm-table-column>
                                 <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
                                 <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button" position="header"></wm-table-action>
                                 <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action>
