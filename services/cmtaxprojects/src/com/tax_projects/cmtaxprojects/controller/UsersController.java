@@ -35,6 +35,7 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 import com.tax_projects.cmtaxprojects.Projects;
 import com.tax_projects.cmtaxprojects.Users;
+import com.tax_projects.cmtaxprojects.Workflowlog;
 import com.tax_projects.cmtaxprojects.service.UsersService;
 
 
@@ -168,6 +169,15 @@ public class UsersController {
         return usersService.getAggregatedValues(aggregationInfo, pageable);
     }
 
+    @RequestMapping(value="/{id:.+}/projectsesForReviewerid", method=RequestMethod.GET)
+    @ApiOperation(value = "Gets the projectsesForReviewerid instance associated with the given id.")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<Projects> findAssociatedProjectsesForReviewerid(@PathVariable("id") Integer id, Pageable pageable) {
+
+        LOGGER.debug("Fetching all associated projectsesForReviewerid");
+        return usersService.findAssociatedProjectsesForReviewerid(id, pageable);
+    }
+
     @RequestMapping(value="/{id:.+}/projectsesForPreparerid", method=RequestMethod.GET)
     @ApiOperation(value = "Gets the projectsesForPreparerid instance associated with the given id.")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
@@ -195,13 +205,13 @@ public class UsersController {
         return usersService.findAssociatedProjectsesForDispatcherid(id, pageable);
     }
 
-    @RequestMapping(value="/{id:.+}/projectsesForReviewerid", method=RequestMethod.GET)
-    @ApiOperation(value = "Gets the projectsesForReviewerid instance associated with the given id.")
+    @RequestMapping(value="/{id:.+}/workflowlogs", method=RequestMethod.GET)
+    @ApiOperation(value = "Gets the workflowlogs instance associated with the given id.")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Page<Projects> findAssociatedProjectsesForReviewerid(@PathVariable("id") Integer id, Pageable pageable) {
+    public Page<Workflowlog> findAssociatedWorkflowlogs(@PathVariable("id") Integer id, Pageable pageable) {
 
-        LOGGER.debug("Fetching all associated projectsesForReviewerid");
-        return usersService.findAssociatedProjectsesForReviewerid(id, pageable);
+        LOGGER.debug("Fetching all associated workflowlogs");
+        return usersService.findAssociatedWorkflowlogs(id, pageable);
     }
 
     /**

@@ -21,43 +21,44 @@ import com.wavemaker.runtime.data.expression.QueryFilter;
 import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
-import com.tax_projects.cmtaxprojects.Table13;
+import com.tax_projects.cmtaxprojects.Workflowlog;
+import com.tax_projects.cmtaxprojects.WorkflowlogId;
 
 /**
- * Service object for domain model class {@link Table13}.
+ * Service object for domain model class {@link Workflowlog}.
  */
-public interface Table13Service {
+public interface WorkflowlogService {
 
     /**
-     * Creates a new Table13. It does cascade insert for all the children in a single transaction.
+     * Creates a new Workflowlog. It does cascade insert for all the children in a single transaction.
      *
-     * This method overrides the input field values using Server side or database managed properties defined on Table13 if any.
+     * This method overrides the input field values using Server side or database managed properties defined on Workflowlog if any.
      *
-     * @param table13 Details of the Table13 to be created; value cannot be null.
-     * @return The newly created Table13.
+     * @param workflowlog Details of the Workflowlog to be created; value cannot be null.
+     * @return The newly created Workflowlog.
      */
-    Table13 create(@Valid Table13 table13);
+    Workflowlog create(@Valid Workflowlog workflowlog);
 
 
 	/**
-     * Returns Table13 by given id if exists.
+     * Returns Workflowlog by given id if exists.
      *
-     * @param table13Id The id of the Table13 to get; value cannot be null.
-     * @return Table13 associated with the given table13Id.
-	 * @throws EntityNotFoundException If no Table13 is found.
+     * @param workflowlogId The id of the Workflowlog to get; value cannot be null.
+     * @return Workflowlog associated with the given workflowlogId.
+	 * @throws EntityNotFoundException If no Workflowlog is found.
      */
-    Table13 getById(Integer table13Id);
+    Workflowlog getById(WorkflowlogId workflowlogId);
 
     /**
-     * Find and return the Table13 by given id if exists, returns null otherwise.
+     * Find and return the Workflowlog by given id if exists, returns null otherwise.
      *
-     * @param table13Id The id of the Table13 to get; value cannot be null.
-     * @return Table13 associated with the given table13Id.
+     * @param workflowlogId The id of the Workflowlog to get; value cannot be null.
+     * @return Workflowlog associated with the given workflowlogId.
      */
-    Table13 findById(Integer table13Id);
+    Workflowlog findById(WorkflowlogId workflowlogId);
 
 	/**
-     * Find and return the list of Table13s by given id's.
+     * Find and return the list of Workflowlogs by given id's.
      *
      * If orderedReturn true, the return List is ordered and positional relative to the incoming ids.
      *
@@ -66,42 +67,42 @@ public interface Table13Service {
      * If enabled, A null is inserted into the List at the proper position(s).
      * If disabled, the nulls are not put into the return List.
      *
-     * @param table13Ids The id's of the Table13 to get; value cannot be null.
+     * @param workflowlogIds The id's of the Workflowlog to get; value cannot be null.
      * @param orderedReturn Should the return List be ordered and positional in relation to the incoming ids?
-     * @return Table13s associated with the given table13Ids.
+     * @return Workflowlogs associated with the given workflowlogIds.
      */
-    List<Table13> findByMultipleIds(List<Integer> table13Ids, boolean orderedReturn);
+    List<Workflowlog> findByMultipleIds(List<WorkflowlogId> workflowlogIds, boolean orderedReturn);
 
 
     /**
-     * Updates the details of an existing Table13. It replaces all fields of the existing Table13 with the given table13.
+     * Updates the details of an existing Workflowlog. It replaces all fields of the existing Workflowlog with the given workflowlog.
      *
-     * This method overrides the input field values using Server side or database managed properties defined on Table13 if any.
+     * This method overrides the input field values using Server side or database managed properties defined on Workflowlog if any.
      *
-     * @param table13 The details of the Table13 to be updated; value cannot be null.
-     * @return The updated Table13.
-     * @throws EntityNotFoundException if no Table13 is found with given input.
+     * @param workflowlog The details of the Workflowlog to be updated; value cannot be null.
+     * @return The updated Workflowlog.
+     * @throws EntityNotFoundException if no Workflowlog is found with given input.
      */
-    Table13 update(@Valid Table13 table13);
+    Workflowlog update(@Valid Workflowlog workflowlog);
 
     /**
-     * Deletes an existing Table13 with the given id.
+     * Deletes an existing Workflowlog with the given id.
      *
-     * @param table13Id The id of the Table13 to be deleted; value cannot be null.
-     * @return The deleted Table13.
-     * @throws EntityNotFoundException if no Table13 found with the given id.
+     * @param workflowlogId The id of the Workflowlog to be deleted; value cannot be null.
+     * @return The deleted Workflowlog.
+     * @throws EntityNotFoundException if no Workflowlog found with the given id.
      */
-    Table13 delete(Integer table13Id);
+    Workflowlog delete(WorkflowlogId workflowlogId);
 
     /**
-     * Deletes an existing Table13 with the given object.
+     * Deletes an existing Workflowlog with the given object.
      *
-     * @param table13 The instance of the Table13 to be deleted; value cannot be null.
+     * @param workflowlog The instance of the Workflowlog to be deleted; value cannot be null.
      */
-    void delete(Table13 table13);
+    void delete(Workflowlog workflowlog);
 
     /**
-     * Find all Table13s matching the given QueryFilter(s).
+     * Find all Workflowlogs matching the given QueryFilter(s).
      * All the QueryFilter(s) are ANDed to filter the results.
      * This method returns Paginated results.
      *
@@ -109,30 +110,30 @@ public interface Table13Service {
      *
      * @param queryFilters Array of queryFilters to filter the results; No filters applied if the input is null/empty.
      * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
-     * @return Paginated list of matching Table13s.
+     * @return Paginated list of matching Workflowlogs.
      *
      * @see QueryFilter
      * @see Pageable
      * @see Page
      */
     @Deprecated
-    Page<Table13> findAll(QueryFilter[] queryFilters, Pageable pageable);
+    Page<Workflowlog> findAll(QueryFilter[] queryFilters, Pageable pageable);
 
     /**
-     * Find all Table13s matching the given input query. This method returns Paginated results.
+     * Find all Workflowlogs matching the given input query. This method returns Paginated results.
      * Note: Go through the documentation for <u>query</u> syntax.
      *
      * @param query The query to filter the results; No filters applied if the input is null/empty.
      * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
-     * @return Paginated list of matching Table13s.
+     * @return Paginated list of matching Workflowlogs.
      *
      * @see Pageable
      * @see Page
      */
-    Page<Table13> findAll(String query, Pageable pageable);
+    Page<Workflowlog> findAll(String query, Pageable pageable);
 
     /**
-     * Exports all Table13s matching the given input query to the given exportType format.
+     * Exports all Workflowlogs matching the given input query to the given exportType format.
      * Note: Go through the documentation for <u>query</u> syntax.
      *
      * @param exportType The format in which to export the data; value cannot be null.
@@ -147,7 +148,7 @@ public interface Table13Service {
     Downloadable export(ExportType exportType, String query, Pageable pageable);
 
     /**
-     * Exports all Table13s matching the given input query to the given exportType format.
+     * Exports all Workflowlogs matching the given input query to the given exportType format.
      *
      * @param options The export options provided by the user; No filters applied if the input is null/empty.
      * @param pageable Details of the pagination information along with the sorting options. If null exports all matching records.
@@ -160,11 +161,11 @@ public interface Table13Service {
     void export(DataExportOptions options, Pageable pageable, OutputStream outputStream);
 
     /**
-     * Retrieve the count of the Table13s in the repository with matching query.
+     * Retrieve the count of the Workflowlogs in the repository with matching query.
      * Note: Go through the documentation for <u>query</u> syntax.
      *
      * @param query query to filter results. No filters applied if the input is null/empty.
-     * @return The count of the Table13.
+     * @return The count of the Workflowlog.
      */
     long count(String query);
 

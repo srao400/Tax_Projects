@@ -23,11 +23,15 @@ public class EmailController {
     private EmailService emailService;
 
     @RequestMapping(value = "/init", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "")
     public void init() throws Exception {
         emailService.init();
     }
 
     @RequestMapping(value = "/sendEmail", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "")
     public void sendEmail(@RequestParam(value = "toEmailAddress", required = false) String toEmailAddress, @RequestParam(value = "emailSubject", required = false) String emailSubject, @RequestParam(value = "emailMessage", required = false) String emailMessage) {
         emailService.sendEmail(toEmailAddress, emailSubject, emailMessage);
     }

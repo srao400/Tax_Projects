@@ -36,6 +36,10 @@ public interface CmtaxprojectsQueryExecutorService {
 
     void exportStatusList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
+    Page<TestResponse> executeTest(Pageable pageable);
+
+    void exportTest(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
     Page<DispatcherListResponse> executeDispatcherList(Pageable pageable);
 
     void exportDispatcherList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
@@ -47,6 +51,12 @@ public interface CmtaxprojectsQueryExecutorService {
     Page<ReviewersListResponse> executeReviewersList(Pageable pageable);
 
     void exportReviewersList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Integer executeInsertWorkflowLog(InsertWorkflowLogRequest insertWorkflowLogRequest);
+
+    Page<GetProjectIdResponse> executeGetProjectID(Pageable pageable);
+
+    void exportGetProjectID(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
     Page<ClientsListResponse> executeClientsList(Pageable pageable);
 

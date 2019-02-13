@@ -62,13 +62,14 @@ public class Projects implements Serializable {
     private Integer currentuser;
     private String billed;
     private Double fees;
+    private Date duedate;
+    private Users usersByReviewerid;
+    private Workstatus workstatus;
     private Users usersByPreparerid;
     private Offices offices;
     private Users usersByPartnerid;
     private Users usersByDispatcherid;
     private Clients clients;
-    private Users usersByReviewerid;
-    private Workstatus workstatus;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -351,6 +352,45 @@ public class Projects implements Serializable {
         this.fees = fees;
     }
 
+    @Column(name = "`duedate`", nullable = true)
+    public Date getDuedate() {
+        return this.duedate;
+    }
+
+    public void setDuedate(Date duedate) {
+        this.duedate = duedate;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`reviewerid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_users_TO_projects_ID_mp0Jf`"))
+    @Fetch(FetchMode.JOIN)
+    public Users getUsersByReviewerid() {
+        return this.usersByReviewerid;
+    }
+
+    public void setUsersByReviewerid(Users usersByReviewerid) {
+        if(usersByReviewerid != null) {
+            this.reviewerid = usersByReviewerid.getId();
+        }
+
+        this.usersByReviewerid = usersByReviewerid;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`statusid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_workstatus_TO_projectmDBNy`"))
+    @Fetch(FetchMode.JOIN)
+    public Workstatus getWorkstatus() {
+        return this.workstatus;
+    }
+
+    public void setWorkstatus(Workstatus workstatus) {
+        if(workstatus != null) {
+            this.statusid = workstatus.getId();
+        }
+
+        this.workstatus = workstatus;
+    }
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`preparerid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_users_TO_projects_ID_VZDUm`"))
     @Fetch(FetchMode.JOIN)
@@ -424,36 +464,6 @@ public class Projects implements Serializable {
         }
 
         this.clients = clients;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`reviewerid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_users_TO_projects_ID_mp0Jf`"))
-    @Fetch(FetchMode.JOIN)
-    public Users getUsersByReviewerid() {
-        return this.usersByReviewerid;
-    }
-
-    public void setUsersByReviewerid(Users usersByReviewerid) {
-        if(usersByReviewerid != null) {
-            this.reviewerid = usersByReviewerid.getId();
-        }
-
-        this.usersByReviewerid = usersByReviewerid;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`statusid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_workstatus_TO_projectmDBNy`"))
-    @Fetch(FetchMode.JOIN)
-    public Workstatus getWorkstatus() {
-        return this.workstatus;
-    }
-
-    public void setWorkstatus(Workstatus workstatus) {
-        if(workstatus != null) {
-            this.statusid = workstatus.getId();
-        }
-
-        this.workstatus = workstatus;
     }
 
     @Override

@@ -78,8 +78,8 @@ public class EmailService {
     private boolean smtpServerTTLSEnabled = true;
     private String host = "smtp.gmail.com";
     private String port = "587";
-    private String username="srao400";
-    private String password="Cpletm2)Q";
+    private String username="srao400@gmail.com";
+    private String password="CPletm2)Q";
  
     @PostConstruct
     public void init() throws Exception {

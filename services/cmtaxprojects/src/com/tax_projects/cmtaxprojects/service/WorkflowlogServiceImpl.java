@@ -27,86 +27,87 @@ import com.wavemaker.runtime.data.expression.QueryFilter;
 import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
-import com.tax_projects.cmtaxprojects.Table13;
+import com.tax_projects.cmtaxprojects.Workflowlog;
+import com.tax_projects.cmtaxprojects.WorkflowlogId;
 
 
 /**
- * ServiceImpl object for domain model class Table13.
+ * ServiceImpl object for domain model class Workflowlog.
  *
- * @see Table13
+ * @see Workflowlog
  */
-@Service("cmtaxprojects.Table13Service")
+@Service("cmtaxprojects.WorkflowlogService")
 @Validated
-public class Table13ServiceImpl implements Table13Service {
+public class WorkflowlogServiceImpl implements WorkflowlogService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Table13ServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(WorkflowlogServiceImpl.class);
 
 
     @Autowired
-    @Qualifier("cmtaxprojects.Table13Dao")
-    private WMGenericDao<Table13, Integer> wmGenericDao;
+    @Qualifier("cmtaxprojects.WorkflowlogDao")
+    private WMGenericDao<Workflowlog, WorkflowlogId> wmGenericDao;
 
-    public void setWMGenericDao(WMGenericDao<Table13, Integer> wmGenericDao) {
+    public void setWMGenericDao(WMGenericDao<Workflowlog, WorkflowlogId> wmGenericDao) {
         this.wmGenericDao = wmGenericDao;
     }
 
     @Transactional(value = "cmtaxprojectsTransactionManager")
     @Override
-    public Table13 create(Table13 table13) {
-        LOGGER.debug("Creating a new Table13 with information: {}", table13);
+    public Workflowlog create(Workflowlog workflowlog) {
+        LOGGER.debug("Creating a new Workflowlog with information: {}", workflowlog);
 
-        Table13 table13Created = this.wmGenericDao.create(table13);
+        Workflowlog workflowlogCreated = this.wmGenericDao.create(workflowlog);
         // reloading object from database to get database defined & server defined values.
-        return this.wmGenericDao.refresh(table13Created);
+        return this.wmGenericDao.refresh(workflowlogCreated);
     }
 
     @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
     @Override
-    public Table13 getById(Integer table13Id) {
-        LOGGER.debug("Finding Table13 by id: {}", table13Id);
-        return this.wmGenericDao.findById(table13Id);
+    public Workflowlog getById(WorkflowlogId workflowlogId) {
+        LOGGER.debug("Finding Workflowlog by id: {}", workflowlogId);
+        return this.wmGenericDao.findById(workflowlogId);
     }
 
     @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
     @Override
-    public Table13 findById(Integer table13Id) {
-        LOGGER.debug("Finding Table13 by id: {}", table13Id);
+    public Workflowlog findById(WorkflowlogId workflowlogId) {
+        LOGGER.debug("Finding Workflowlog by id: {}", workflowlogId);
         try {
-            return this.wmGenericDao.findById(table13Id);
+            return this.wmGenericDao.findById(workflowlogId);
         } catch (EntityNotFoundException ex) {
-            LOGGER.debug("No Table13 found with id: {}", table13Id, ex);
+            LOGGER.debug("No Workflowlog found with id: {}", workflowlogId, ex);
             return null;
         }
     }
 
     @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
     @Override
-    public List<Table13> findByMultipleIds(List<Integer> table13Ids, boolean orderedReturn) {
-        LOGGER.debug("Finding Table13s by ids: {}", table13Ids);
+    public List<Workflowlog> findByMultipleIds(List<WorkflowlogId> workflowlogIds, boolean orderedReturn) {
+        LOGGER.debug("Finding Workflowlogs by ids: {}", workflowlogIds);
 
-        return this.wmGenericDao.findByMultipleIds(table13Ids, orderedReturn);
+        return this.wmGenericDao.findByMultipleIds(workflowlogIds, orderedReturn);
     }
 
 
     @Transactional(rollbackFor = EntityNotFoundException.class, value = "cmtaxprojectsTransactionManager")
     @Override
-    public Table13 update(Table13 table13) {
-        LOGGER.debug("Updating Table13 with information: {}", table13);
+    public Workflowlog update(Workflowlog workflowlog) {
+        LOGGER.debug("Updating Workflowlog with information: {}", workflowlog);
 
-        this.wmGenericDao.update(table13);
-        this.wmGenericDao.refresh(table13);
+        this.wmGenericDao.update(workflowlog);
+        this.wmGenericDao.refresh(workflowlog);
 
-        return table13;
+        return workflowlog;
     }
 
     @Transactional(value = "cmtaxprojectsTransactionManager")
     @Override
-    public Table13 delete(Integer table13Id) {
-        LOGGER.debug("Deleting Table13 with id: {}", table13Id);
-        Table13 deleted = this.wmGenericDao.findById(table13Id);
+    public Workflowlog delete(WorkflowlogId workflowlogId) {
+        LOGGER.debug("Deleting Workflowlog with id: {}", workflowlogId);
+        Workflowlog deleted = this.wmGenericDao.findById(workflowlogId);
         if (deleted == null) {
-            LOGGER.debug("No Table13 found with id: {}", table13Id);
-            throw new EntityNotFoundException(String.valueOf(table13Id));
+            LOGGER.debug("No Workflowlog found with id: {}", workflowlogId);
+            throw new EntityNotFoundException(String.valueOf(workflowlogId));
         }
         this.wmGenericDao.delete(deleted);
         return deleted;
@@ -114,36 +115,36 @@ public class Table13ServiceImpl implements Table13Service {
 
     @Transactional(value = "cmtaxprojectsTransactionManager")
     @Override
-    public void delete(Table13 table13) {
-        LOGGER.debug("Deleting Table13 with {}", table13);
-        this.wmGenericDao.delete(table13);
+    public void delete(Workflowlog workflowlog) {
+        LOGGER.debug("Deleting Workflowlog with {}", workflowlog);
+        this.wmGenericDao.delete(workflowlog);
     }
 
     @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
     @Override
-    public Page<Table13> findAll(QueryFilter[] queryFilters, Pageable pageable) {
-        LOGGER.debug("Finding all Table13s");
+    public Page<Workflowlog> findAll(QueryFilter[] queryFilters, Pageable pageable) {
+        LOGGER.debug("Finding all Workflowlogs");
         return this.wmGenericDao.search(queryFilters, pageable);
     }
 
     @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
     @Override
-    public Page<Table13> findAll(String query, Pageable pageable) {
-        LOGGER.debug("Finding all Table13s");
+    public Page<Workflowlog> findAll(String query, Pageable pageable) {
+        LOGGER.debug("Finding all Workflowlogs");
         return this.wmGenericDao.searchByQuery(query, pageable);
     }
 
     @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager", timeout = 300)
     @Override
     public Downloadable export(ExportType exportType, String query, Pageable pageable) {
-        LOGGER.debug("exporting data in the service cmtaxprojects for table Table13 to {} format", exportType);
+        LOGGER.debug("exporting data in the service cmtaxprojects for table Workflowlog to {} format", exportType);
         return this.wmGenericDao.export(exportType, query, pageable);
     }
 
     @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager", timeout = 300)
     @Override
     public void export(DataExportOptions options, Pageable pageable, OutputStream outputStream) {
-        LOGGER.debug("exporting data in the service cmtaxprojects for table Table13 to {} format", options.getExportType());
+        LOGGER.debug("exporting data in the service cmtaxprojects for table Workflowlog to {} format", options.getExportType());
         this.wmGenericDao.export(options, pageable, outputStream);
     }
 

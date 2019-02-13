@@ -14,14 +14,15 @@ import org.springframework.stereotype.Repository;
 
 import com.wavemaker.runtime.data.dao.WMGenericDaoImpl;
 
-import com.tax_projects.cmtaxprojects.Table13;
+import com.tax_projects.cmtaxprojects.Workflowlog;
+import com.tax_projects.cmtaxprojects.WorkflowlogId;
 
 /**
- * Specifies methods used to obtain and modify Table13 related information
+ * Specifies methods used to obtain and modify Workflowlog related information
  * which is stored in the database.
  */
-@Repository("cmtaxprojects.Table13Dao")
-public class Table13Dao extends WMGenericDaoImpl<Table13, Integer> {
+@Repository("cmtaxprojects.WorkflowlogDao")
+public class WorkflowlogDao extends WMGenericDaoImpl<Workflowlog, WorkflowlogId> {
 
     @Autowired
     @Qualifier("cmtaxprojectsTemplate")

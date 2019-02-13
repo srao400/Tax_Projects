@@ -94,6 +94,34 @@ order by user) wmTempTable
         ]]>
     </sql-query>
 
+    <sql-query name="test">
+        <![CDATA[
+        SELECT a.userid, a.notifyid, a.projectid,
+CASE
+    WHEN a.notifyid = 1 THEN preparerid
+    WHEN a.notifyid = 2 THEN reviewerid
+    WHEN a.notifyid = 3 THEN partnerid
+    WHEN a.notifyid = 4 THEN dispatcherid 
+END as personid
+FROM workflowlog as a 
+LEFT JOIN projects as b on a.projectid = b.id
+        ]]>
+    </sql-query>
+
+    <sql-query name="test__count">
+        <![CDATA[
+        select count(*) from (SELECT a.userid, a.notifyid, a.projectid,
+CASE
+    WHEN a.notifyid = 1 THEN preparerid
+    WHEN a.notifyid = 2 THEN reviewerid
+    WHEN a.notifyid = 3 THEN partnerid
+    WHEN a.notifyid = 4 THEN dispatcherid 
+END as personid
+FROM workflowlog as a 
+LEFT JOIN projects as b on a.projectid = b.id) wmTempTable
+        ]]>
+    </sql-query>
+
     <sql-query name="dispatcherList">
         <![CDATA[
         select id, username, firstname, lastname from users where roleid = 4
@@ -127,6 +155,41 @@ order by user) wmTempTable
     <sql-query name="reviewersList__count">
         <![CDATA[
         select count(*) from (select id, username, firstname, lastname from users where roleid = 2) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="insertWorkflowLog">
+        <![CDATA[
+        Insert IGNORE into workflowlog (statusid, notifyid, clientid, projectid, notifydate)
+    values(:statusid, 
+    CASE
+        WHEN :notifyid = 1 THEN :preparerid
+        WHEN :notifyid = 2 THEN :reviewerid
+        WHEN :notifyid = 3 THEN :partnerid
+        WHEN :notifyid = 4 THEN :dispatcherid
+        END, 
+        :clientid, :projectid, :SERVER__DATE_TIME__currdate)
+        ]]>
+    <query-param name="statusid" type="java.lang.Integer"/>
+    <query-param name="notifyid" type="java.lang.Integer"/>
+    <query-param name="preparerid" type="java.lang.Integer"/>
+    <query-param name="reviewerid" type="java.lang.Integer"/>
+    <query-param name="partnerid" type="java.lang.Integer"/>
+    <query-param name="dispatcherid" type="java.lang.Integer"/>
+    <query-param name="clientid" type="java.lang.Integer"/>
+    <query-param name="projectid" type="java.lang.Integer"/>
+    <query-param name="SERVER__DATE_TIME__currdate" type="java.time.LocalDateTime"/>
+    </sql-query>
+
+    <sql-query name="getProjectID">
+        <![CDATA[
+        select max(id) from projects
+        ]]>
+    </sql-query>
+
+    <sql-query name="getProjectID__count">
+        <![CDATA[
+        select count(*) from (select max(id) from projects) wmTempTable
         ]]>
     </sql-query>
 

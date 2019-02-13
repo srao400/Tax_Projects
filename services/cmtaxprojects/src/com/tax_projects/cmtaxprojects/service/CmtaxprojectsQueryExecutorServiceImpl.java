@@ -135,6 +135,26 @@ public class CmtaxprojectsQueryExecutorServiceImpl implements CmtaxprojectsQuery
 
     @Transactional(value = "cmtaxprojectsTransactionManager", readOnly = true)
     @Override
+    public Page<TestResponse> executeTest(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("test", params, TestResponse.class, pageable);
+    }
+
+    @Transactional(value = "cmtaxprojectsTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportTest(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("test", params, TestResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "cmtaxprojectsTransactionManager", readOnly = true)
+    @Override
     public Page<DispatcherListResponse> executeDispatcherList(Pageable pageable) {
         Map<String, Object> params = new HashMap<>(0);
 
@@ -189,6 +209,43 @@ public class CmtaxprojectsQueryExecutorServiceImpl implements CmtaxprojectsQuery
 
 
         QueryProcedureInput queryInput = new QueryProcedureInput("reviewersList", params, ReviewersListResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "cmtaxprojectsTransactionManager")
+    @Override
+    public Integer executeInsertWorkflowLog(InsertWorkflowLogRequest insertWorkflowLogRequest) {
+        Map<String, Object> params = new HashMap<>(8);
+
+        params.put("statusid", insertWorkflowLogRequest.getStatusid());
+        params.put("notifyid", insertWorkflowLogRequest.getNotifyid());
+        params.put("preparerid", insertWorkflowLogRequest.getPreparerid());
+        params.put("reviewerid", insertWorkflowLogRequest.getReviewerid());
+        params.put("partnerid", insertWorkflowLogRequest.getPartnerid());
+        params.put("dispatcherid", insertWorkflowLogRequest.getDispatcherid());
+        params.put("clientid", insertWorkflowLogRequest.getClientid());
+        params.put("projectid", insertWorkflowLogRequest.getProjectid());
+
+        return queryExecutor.executeNamedQueryForUpdate("insertWorkflowLog", params);
+    }
+
+    @Transactional(value = "cmtaxprojectsTransactionManager", readOnly = true)
+    @Override
+    public Page<GetProjectIdResponse> executeGetProjectID(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("getProjectID", params, GetProjectIdResponse.class, pageable);
+    }
+
+    @Transactional(value = "cmtaxprojectsTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetProjectID(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("getProjectID", params, GetProjectIdResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }

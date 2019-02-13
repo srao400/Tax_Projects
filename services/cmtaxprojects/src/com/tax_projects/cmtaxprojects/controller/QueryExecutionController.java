@@ -7,6 +7,7 @@ package com.tax_projects.cmtaxprojects.controller;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wavemaker.commons.wrapper.IntegerWrapper;
 import com.wavemaker.commons.wrapper.StringWrapper;
 import com.wavemaker.runtime.data.export.ExportOptions;
 import com.wavemaker.runtime.file.manager.ExportedFileManager;
@@ -182,6 +184,34 @@ public class QueryExecutionController {
         return new StringWrapper(exportedUrl);
     }
 
+    @RequestMapping(value = "/queries/test", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "test")
+    public Page<TestResponse> executeTest(Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: test");
+        Page<TestResponse> _result = queryService.executeTest(pageable);
+        LOGGER.debug("got the result for named query: test, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query test")
+    @RequestMapping(value = "/queries/test/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportTest(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: test");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "test";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportTest( exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
     @RequestMapping(value = "/queries/dispatcherList", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "List of dispatchers")
@@ -262,6 +292,44 @@ public class QueryExecutionController {
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
                         outputStream -> queryService.exportReviewersList( exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
+    @RequestMapping(value = "/queries/insertWorkflowLog", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Insert row into workflow log")
+    public IntegerWrapper executeInsertWorkflowLog(@Valid @RequestBody InsertWorkflowLogRequest insertWorkflowLogRequest, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: insertWorkflowLog");
+        Integer _result = queryService.executeInsertWorkflowLog(insertWorkflowLogRequest);
+        LOGGER.debug("got the result for named query: insertWorkflowLog, result:{}", _result);
+        return new IntegerWrapper(_result);
+    }
+
+    @RequestMapping(value = "/queries/getProjectID", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Get project ID")
+    public Page<GetProjectIdResponse> executeGetProjectID(Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: getProjectID");
+        Page<GetProjectIdResponse> _result = queryService.executeGetProjectID(pageable);
+        LOGGER.debug("got the result for named query: getProjectID, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query getProjectID")
+    @RequestMapping(value = "/queries/getProjectID/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportGetProjectID(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: getProjectID");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "getProjectID";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportGetProjectID( exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }

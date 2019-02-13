@@ -22,6 +22,7 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.tax_projects.cmtaxprojects.Projects;
+import com.tax_projects.cmtaxprojects.Workflowlog;
 import com.tax_projects.cmtaxprojects.Workstatus;
 
 /**
@@ -193,5 +194,17 @@ public interface WorkstatusService {
      * @see Page
      */
     Page<Projects> findAssociatedProjectses(Integer id, Pageable pageable);
+
+    /*
+     * Returns the associated workflowlogs for given Workstatus id.
+     *
+     * @param id value of id; value cannot be null
+     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
+     * @return Paginated list of associated Workflowlog instances.
+     *
+     * @see Pageable
+     * @see Page
+     */
+    Page<Workflowlog> findAssociatedWorkflowlogs(Integer id, Pageable pageable);
 
 }

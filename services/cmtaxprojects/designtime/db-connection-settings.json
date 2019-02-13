@@ -12,9 +12,6 @@
   "port" : "55501",
   "schemaName" : null,
   "tableFilter" : [ {
-    "table" : "TABLE13",
-    "schema" : null
-  }, {
     "table" : "clients",
     "schema" : null
   }, {
@@ -31,6 +28,9 @@
     "schema" : null
   }, {
     "table" : "workstatus",
+    "schema" : null
+  }, {
+    "table" : "workflowlog",
     "schema" : null
   } ],
   "schemaFilter" : [ ],

@@ -180,6 +180,132 @@
       } ]
     }
   },
+  "getProjectID" : {
+    "name" : "getProjectID",
+    "description" : "Get project ID",
+    "version" : "V2",
+    "queryString" : "select max(id) from projects",
+    "countQueryString" : "select count(*) from (select max(id) from projects) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.tax_projects.cmtaxprojects.models.query.GetProjectIdResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "max(id)",
+        "fieldName" : "max_id_",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "insertWorkflowLog" : {
+    "name" : "insertWorkflowLog",
+    "description" : "Insert row into workflow log",
+    "version" : "V2",
+    "queryString" : "Insert IGNORE into workflowlog (statusid, notifyid, clientid, projectid, notifydate)\n    values(:statusid, \n    CASE\n        WHEN :notifyid = 1 THEN :preparerid\n        WHEN :notifyid = 2 THEN :reviewerid\n        WHEN :notifyid = 3 THEN :partnerid\n        WHEN :notifyid = 4 THEN :dispatcherid\n        END, \n        :clientid, :projectid, :currdate)",
+    "countQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "INSERT",
+    "parameters" : [ {
+      "name" : "statusid",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "7",
+      "required" : true
+    }, {
+      "name" : "notifyid",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1",
+      "required" : true
+    }, {
+      "name" : "preparerid",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "11",
+      "required" : true
+    }, {
+      "name" : "reviewerid",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1",
+      "required" : true
+    }, {
+      "name" : "partnerid",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "10",
+      "required" : true
+    }, {
+      "name" : "dispatcherid",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2",
+      "required" : true
+    }, {
+      "name" : "clientid",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "3",
+      "required" : true
+    }, {
+      "name" : "projectid",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "10",
+      "required" : true
+    }, {
+      "name" : "currdate",
+      "type" : "datetime",
+      "list" : false,
+      "variableType" : "SERVER",
+      "variableName" : "DATE_TIME",
+      "testValue" : "2019-02-13T13:06:51",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.tax_projects.cmtaxprojects.models.query.InsertWorkflowLogRequest",
+      "method" : "POST"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
   "partnersList" : {
     "name" : "partnersList",
     "description" : "List of partners",
@@ -561,6 +687,65 @@
       }, {
         "name" : "notifyrole",
         "fieldName" : "notifyrole",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "test" : {
+    "name" : "test",
+    "description" : "test",
+    "version" : "V2",
+    "queryString" : "SELECT a.userid, a.notifyid, a.projectid,\r\nCASE\r\n    WHEN a.notifyid = 1 THEN preparerid\r\n    WHEN a.notifyid = 2 THEN reviewerid\r\n    WHEN a.notifyid = 3 THEN partnerid\r\n    WHEN a.notifyid = 4 THEN dispatcherid \r\nEND as personid\r\nFROM workflowlog as a \r\nLEFT JOIN projects as b on a.projectid = b.id",
+    "countQueryString" : "select count(*) from (SELECT a.userid, a.notifyid, a.projectid,\r\nCASE\r\n    WHEN a.notifyid = 1 THEN preparerid\r\n    WHEN a.notifyid = 2 THEN reviewerid\r\n    WHEN a.notifyid = 3 THEN partnerid\r\n    WHEN a.notifyid = 4 THEN dispatcherid \r\nEND as personid\r\nFROM workflowlog as a \r\nLEFT JOIN projects as b on a.projectid = b.id) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.tax_projects.cmtaxprojects.models.query.TestResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "userid",
+        "fieldName" : "userid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "notifyid",
+        "fieldName" : "notifyid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "projectid",
+        "fieldName" : "projectid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "personid",
+        "fieldName" : "personid",
         "optional" : false,
         "fieldType" : {
           "type" : "PRIMITIVE",

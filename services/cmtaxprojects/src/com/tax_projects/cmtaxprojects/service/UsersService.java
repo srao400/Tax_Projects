@@ -23,6 +23,7 @@ import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.tax_projects.cmtaxprojects.Projects;
 import com.tax_projects.cmtaxprojects.Users;
+import com.tax_projects.cmtaxprojects.Workflowlog;
 
 /**
  * Service object for domain model class {@link Users}.
@@ -183,6 +184,18 @@ public interface UsersService {
     Page<Map<String, Object>> getAggregatedValues(AggregationInfo aggregationInfo, Pageable pageable);
 
     /*
+     * Returns the associated projectsesForReviewerid for given Users id.
+     *
+     * @param id value of id; value cannot be null
+     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
+     * @return Paginated list of associated Projects instances.
+     *
+     * @see Pageable
+     * @see Page
+     */
+    Page<Projects> findAssociatedProjectsesForReviewerid(Integer id, Pageable pageable);
+
+    /*
      * Returns the associated projectsesForPreparerid for given Users id.
      *
      * @param id value of id; value cannot be null
@@ -219,15 +232,15 @@ public interface UsersService {
     Page<Projects> findAssociatedProjectsesForDispatcherid(Integer id, Pageable pageable);
 
     /*
-     * Returns the associated projectsesForReviewerid for given Users id.
+     * Returns the associated workflowlogs for given Users id.
      *
      * @param id value of id; value cannot be null
      * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
-     * @return Paginated list of associated Projects instances.
+     * @return Paginated list of associated Workflowlog instances.
      *
      * @see Pageable
      * @see Page
      */
-    Page<Projects> findAssociatedProjectsesForReviewerid(Integer id, Pageable pageable);
+    Page<Workflowlog> findAssociatedWorkflowlogs(Integer id, Pageable pageable);
 
 }
