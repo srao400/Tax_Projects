@@ -63,13 +63,17 @@ public class Projects implements Serializable {
     private String billed;
     private Double fees;
     private Date duedate;
+    private String _3520ext;
+    private String _3520aext;
+    private String stateext;
+    private String _1040ext;
+    private Clients clients;
     private Users usersByReviewerid;
     private Workstatus workstatus;
     private Users usersByPreparerid;
     private Offices offices;
     private Users usersByPartnerid;
     private Users usersByDispatcherid;
-    private Clients clients;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -361,6 +365,57 @@ public class Projects implements Serializable {
         this.duedate = duedate;
     }
 
+    @Column(name = "`3520ext`", nullable = true, length = 10)
+    public String get_3520ext() {
+        return this._3520ext;
+    }
+
+    public void set_3520ext(String _3520ext) {
+        this._3520ext = _3520ext;
+    }
+
+    @Column(name = "`3520aext`", nullable = true, length = 10)
+    public String get_3520aext() {
+        return this._3520aext;
+    }
+
+    public void set_3520aext(String _3520aext) {
+        this._3520aext = _3520aext;
+    }
+
+    @Column(name = "`stateext`", nullable = true, length = 10)
+    public String getStateext() {
+        return this.stateext;
+    }
+
+    public void setStateext(String stateext) {
+        this.stateext = stateext;
+    }
+
+    @Column(name = "`1040ext`", nullable = true, length = 10)
+    public String get_1040ext() {
+        return this._1040ext;
+    }
+
+    public void set_1040ext(String _1040ext) {
+        this._1040ext = _1040ext;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`clientid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_clients_TO_projects_ItIrax`"))
+    @Fetch(FetchMode.JOIN)
+    public Clients getClients() {
+        return this.clients;
+    }
+
+    public void setClients(Clients clients) {
+        if(clients != null) {
+            this.clientid = clients.getId();
+        }
+
+        this.clients = clients;
+    }
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`reviewerid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_users_TO_projects_ID_mp0Jf`"))
     @Fetch(FetchMode.JOIN)
@@ -449,21 +504,6 @@ public class Projects implements Serializable {
         }
 
         this.usersByDispatcherid = usersByDispatcherid;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`clientid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_clients_TO_projects_ItIrax`"))
-    @Fetch(FetchMode.JOIN)
-    public Clients getClients() {
-        return this.clients;
-    }
-
-    public void setClients(Clients clients) {
-        if(clients != null) {
-            this.clientid = clients.getId();
-        }
-
-        this.clients = clients;
     }
 
     @Override

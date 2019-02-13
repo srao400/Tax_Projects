@@ -27,10 +27,10 @@
     "table" : "users",
     "schema" : null
   }, {
-    "table" : "workstatus",
+    "table" : "workflowlog",
     "schema" : null
   }, {
-    "table" : "workflowlog",
+    "table" : "workstatus",
     "schema" : null
   } ],
   "schemaFilter" : [ ],

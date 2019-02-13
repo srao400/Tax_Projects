@@ -36,10 +36,10 @@ public class Workflowlog implements Serializable {
     private Integer projectid;
     private int id;
     private LocalDateTime notifydate;
+    private Users users;
     private Workstatus workstatus;
     private Projects projects;
     private Clients clients;
-    private Users users;
 
     @Id
     @Column(name = "`clientid`", nullable = false, scale = 0, precision = 10)
@@ -100,6 +100,21 @@ public class Workflowlog implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`notifyid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_users_TO_workflowlog_OgMgR`"))
+    @Fetch(FetchMode.JOIN)
+    public Users getUsers() {
+        return this.users;
+    }
+
+    public void setUsers(Users users) {
+        if(users != null) {
+            this.notifyid = users.getId();
+        }
+
+        this.users = users;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`statusid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_workstatus_TO_workflojH86n`"))
     @Fetch(FetchMode.JOIN)
     public Workstatus getWorkstatus() {
@@ -142,21 +157,6 @@ public class Workflowlog implements Serializable {
         }
 
         this.clients = clients;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`notifyid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_users_TO_workflowlog_OgMgR`"))
-    @Fetch(FetchMode.JOIN)
-    public Users getUsers() {
-        return this.users;
-    }
-
-    public void setUsers(Users users) {
-        if(users != null) {
-            this.notifyid = users.getId();
-        }
-
-        this.users = users;
     }
 
     @Override
