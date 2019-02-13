@@ -201,6 +201,29 @@
     "filterExpressions" : { },
     "package" : "com.tax_projects.cmtaxprojects.Clients"
   },
+  "CmtaxprojectsCreateProjects" : {
+    "_id" : "wm-CmtaxprojectsCreateProjects-wm.ServiceVariable-1550015984729",
+    "name" : "CmtaxprojectsCreateProjects",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.tax_projects.cmtaxprojects.Projects",
+    "service" : "cmtaxprojects",
+    "operation" : "createProjects",
+    "operationId" : "ProjectsController_createProjects",
+    "operationType" : "post",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "Projects"
+  },
   "CmtaxprojectsExecuteUsersList1" : {
     "_id" : "wm-CmtaxprojectsExecuteUsersList1-wm.ServiceVariable-1549995782046",
     "name" : "CmtaxprojectsExecuteUsersList1",
@@ -2443,6 +2466,40 @@
     "transformationRequired" : false,
     "saveInPhonegap" : false,
     "controller" : "QueryExecution"
+  },
+  "sendMailVar" : {
+    "_id" : "wm-sendMailVar-wm.ServiceVariable-1550015202353",
+    "name" : "sendMailVar",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "toEmailAddress",
+      "value" : "srinivas.rao@crowemackay.ca",
+      "type" : "string"
+    }, {
+      "target" : "emailSubject",
+      "value" : "Test",
+      "type" : "string"
+    }, {
+      "target" : "emailMessage",
+      "value" : "Test Email",
+      "type" : "string"
+    } ],
+    "type" : "object",
+    "service" : "emailService",
+    "operation" : "sendEmail",
+    "operationId" : "EmailController_sendEmail",
+    "operationType" : "get",
+    "serviceType" : "JavaService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "Email"
   },
   "status_var" : {
     "_id" : "wm-status_var-wm.ServiceVariable-1549994999413",
