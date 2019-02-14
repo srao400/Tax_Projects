@@ -22,7 +22,6 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.tax_projects.cmtaxprojects.Projects;
-import com.tax_projects.cmtaxprojects.Workflowlog;
 
 /**
  * Service object for domain model class {@link Projects}.
@@ -182,16 +181,5 @@ public interface ProjectsService {
 	 */
     Page<Map<String, Object>> getAggregatedValues(AggregationInfo aggregationInfo, Pageable pageable);
 
-    /*
-     * Returns the associated workflowlogs for given Projects id.
-     *
-     * @param id value of id; value cannot be null
-     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
-     * @return Paginated list of associated Workflowlog instances.
-     *
-     * @see Pageable
-     * @see Page
-     */
-    Page<Workflowlog> findAssociatedWorkflowlogs(Integer id, Pageable pageable);
 
 }

@@ -58,39 +58,15 @@ order by user) wmTempTable
         ]]>
     </sql-query>
 
-    <sql-query name="preparersList">
+    <sql-query name="defaultdispatcher">
         <![CDATA[
-        select id, username, firstname, lastname from users where roleid = 1
+        select id, concat(firstname, ' ', lastname) as dispatcher from users where id = 2
         ]]>
     </sql-query>
 
-    <sql-query name="preparersList__count">
+    <sql-query name="defaultdispatcher__count">
         <![CDATA[
-        select count(*) from (select id, username, firstname, lastname from users where roleid = 1) wmTempTable
-        ]]>
-    </sql-query>
-
-    <sql-query name="rolesList">
-        <![CDATA[
-        select id, role from roles
-        ]]>
-    </sql-query>
-
-    <sql-query name="rolesList__count">
-        <![CDATA[
-        select count(*) from (select id, role from roles) wmTempTable
-        ]]>
-    </sql-query>
-
-    <sql-query name="statusList">
-        <![CDATA[
-        select * from workstatus
-        ]]>
-    </sql-query>
-
-    <sql-query name="statusList__count">
-        <![CDATA[
-        select count(*) from (select * from workstatus) wmTempTable
+        select count(*) from (select id, concat(firstname, ' ', lastname) as dispatcher from users where id = 2) wmTempTable
         ]]>
     </sql-query>
 
@@ -122,18 +98,6 @@ LEFT JOIN projects as b on a.projectid = b.id) wmTempTable
         ]]>
     </sql-query>
 
-    <sql-query name="dispatcherList">
-        <![CDATA[
-        select id, username, firstname, lastname from users where roleid = 4
-        ]]>
-    </sql-query>
-
-    <sql-query name="dispatcherList__count">
-        <![CDATA[
-        select count(*) from (select id, username, firstname, lastname from users where roleid = 4) wmTempTable
-        ]]>
-    </sql-query>
-
     <sql-query name="partnersList">
         <![CDATA[
         select id, username, firstname, lastname from users where roleid = 3
@@ -143,18 +107,6 @@ LEFT JOIN projects as b on a.projectid = b.id) wmTempTable
     <sql-query name="partnersList__count">
         <![CDATA[
         select count(*) from (select id, username, firstname, lastname from users where roleid = 3) wmTempTable
-        ]]>
-    </sql-query>
-
-    <sql-query name="reviewersList">
-        <![CDATA[
-        select id, username, firstname, lastname from users where roleid = 2
-        ]]>
-    </sql-query>
-
-    <sql-query name="reviewersList__count">
-        <![CDATA[
-        select count(*) from (select id, username, firstname, lastname from users where roleid = 2) wmTempTable
         ]]>
     </sql-query>
 
@@ -193,6 +145,18 @@ LEFT JOIN projects as b on a.projectid = b.id) wmTempTable
         ]]>
     </sql-query>
 
+    <sql-query name="defaultreviewer">
+        <![CDATA[
+        Select id, concat(firstname, ' ', lastname) as reviewer from users where id = 1
+        ]]>
+    </sql-query>
+
+    <sql-query name="defaultreviewer__count">
+        <![CDATA[
+        select count(*) from (Select id, concat(firstname, ' ', lastname) as reviewer from users where id = 1) wmTempTable
+        ]]>
+    </sql-query>
+
     <sql-query name="clientsList">
         <![CDATA[
         select * from clients
@@ -202,6 +166,102 @@ LEFT JOIN projects as b on a.projectid = b.id) wmTempTable
     <sql-query name="clientsList__count">
         <![CDATA[
         select count(*) from (select * from clients) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="preparersList">
+        <![CDATA[
+        select id, username, firstname, lastname from users where roleid = 1
+        ]]>
+    </sql-query>
+
+    <sql-query name="preparersList__count">
+        <![CDATA[
+        select count(*) from (select id, username, firstname, lastname from users where roleid = 1) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="getCurrentDate">
+        <![CDATA[
+        select CURRENT_DATE
+        ]]>
+    </sql-query>
+
+    <sql-query name="getCurrentDate__count">
+        <![CDATA[
+        select count(*) from (select CURRENT_DATE) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="rolesList">
+        <![CDATA[
+        select id, role from roles
+        ]]>
+    </sql-query>
+
+    <sql-query name="rolesList__count">
+        <![CDATA[
+        select count(*) from (select id, role from roles) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="statusList">
+        <![CDATA[
+        select * from workstatus
+        ]]>
+    </sql-query>
+
+    <sql-query name="statusList__count">
+        <![CDATA[
+        select count(*) from (select * from workstatus) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="duedate">
+        <![CDATA[
+        SELECT DATE_ADD(CURDATE(), INTERVAL 14 DAY) AS DUEDATE
+        ]]>
+    </sql-query>
+
+    <sql-query name="duedate__count">
+        <![CDATA[
+        select count(*) from (SELECT DATE_ADD(CURDATE(), INTERVAL 14 DAY) AS DUEDATE) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="dispatcherList">
+        <![CDATA[
+        select id, username, firstname, lastname from users where roleid = 4
+        ]]>
+    </sql-query>
+
+    <sql-query name="dispatcherList__count">
+        <![CDATA[
+        select count(*) from (select id, username, firstname, lastname from users where roleid = 4) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="reviewersList">
+        <![CDATA[
+        select id, username, firstname, lastname from users where roleid = 2
+        ]]>
+    </sql-query>
+
+    <sql-query name="reviewersList__count">
+        <![CDATA[
+        select count(*) from (select id, username, firstname, lastname from users where roleid = 2) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="dateToday">
+        <![CDATA[
+        SELECT CURDATE() AS DATETODAY
+        ]]>
+    </sql-query>
+
+    <sql-query name="dateToday__count">
+        <![CDATA[
+        select count(*) from (SELECT CURDATE() AS DATETODAY) wmTempTable
         ]]>
     </sql-query>
 </hibernate-mapping>

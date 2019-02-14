@@ -1,0 +1,25 @@
+{
+  "CmtaxprojectsEditProjects" : {
+    "_id" : "wm-CmtaxprojectsEditProjects-wm.ServiceVariable-1550100340419",
+    "name" : "CmtaxprojectsEditProjects",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.tax_projects.cmtaxprojects.Projects",
+    "service" : "cmtaxprojects",
+    "operation" : "editProjects",
+    "operationId" : "ProjectsController_editProjects",
+    "operationType" : "put",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "Projects"
+  }
+}

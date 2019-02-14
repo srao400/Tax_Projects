@@ -30,7 +30,6 @@ import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.tax_projects.cmtaxprojects.Projects;
 import com.tax_projects.cmtaxprojects.Users;
-import com.tax_projects.cmtaxprojects.Workflowlog;
 
 
 /**
@@ -48,11 +47,6 @@ public class UsersServiceImpl implements UsersService {
     @Autowired
     @Qualifier("cmtaxprojects.ProjectsService")
     private ProjectsService projectsService;
-
-    @Lazy
-    @Autowired
-    @Qualifier("cmtaxprojects.WorkflowlogService")
-    private WorkflowlogService workflowlogService;
 
     @Autowired
     @Qualifier("cmtaxprojects.UsersDao")
@@ -173,17 +167,6 @@ public class UsersServiceImpl implements UsersService {
 
     @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
     @Override
-    public Page<Projects> findAssociatedProjectsesForReviewerid(Integer id, Pageable pageable) {
-        LOGGER.debug("Fetching all associated projectsesForReviewerid");
-
-        StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("usersByReviewerid.id = '" + id + "'");
-
-        return projectsService.findAll(queryBuilder.toString(), pageable);
-    }
-
-    @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
-    @Override
     public Page<Projects> findAssociatedProjectsesForPreparerid(Integer id, Pageable pageable) {
         LOGGER.debug("Fetching all associated projectsesForPreparerid");
 
@@ -217,13 +200,13 @@ public class UsersServiceImpl implements UsersService {
 
     @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
     @Override
-    public Page<Workflowlog> findAssociatedWorkflowlogs(Integer id, Pageable pageable) {
-        LOGGER.debug("Fetching all associated workflowlogs");
+    public Page<Projects> findAssociatedProjectsesForReviewerid(Integer id, Pageable pageable) {
+        LOGGER.debug("Fetching all associated projectsesForReviewerid");
 
         StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("users.id = '" + id + "'");
+        queryBuilder.append("usersByReviewerid.id = '" + id + "'");
 
-        return workflowlogService.findAll(queryBuilder.toString(), pageable);
+        return projectsService.findAll(queryBuilder.toString(), pageable);
     }
 
     /**
@@ -233,15 +216,6 @@ public class UsersServiceImpl implements UsersService {
      */
     protected void setProjectsService(ProjectsService service) {
         this.projectsService = service;
-    }
-
-    /**
-     * This setter method should only be used by unit tests
-     *
-     * @param service WorkflowlogService instance
-     */
-    protected void setWorkflowlogService(WorkflowlogService service) {
-        this.workflowlogService = service;
     }
 
 }

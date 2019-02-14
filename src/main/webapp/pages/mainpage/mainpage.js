@@ -77,13 +77,13 @@ Application.$controller("ProjectsLiveForm2Controller", ["$scope",
 
         $scope.workstatusChange = function($event, $isolateScope, newVal, oldVal) {
             if ($Scope.Widgets.ProjectsLiveForm2.dataoutput.workstatus.id === 4) {
-                Widgets.ProjectsLiveForm2.dataoutput.prepareddate = CURRENT_DATE;
+                Widgets.ProjectsLiveForm2.dataoutput.prepareddate = Variables.todaysDate_var.dataSet[$i].datetoday;
             }
             if ($Scope.Widgets.ProjectsLiveForm2.dataoutput.workstatus.id === 5) {
-                Widgets.ProjectsLiveForm2.dataoutput.revieweddate = CURRENT_DATE;
+                Widgets.ProjectsLiveForm2.dataoutput.revieweddate = Variables.todaysDate_var.dataSet[$i].datetoday;
             }
             if ($Scope.Widgets.ProjectsLiveForm2.dataoutput.workstatus.id === 8) {
-                Widgets.ProjectsLiveForm2.dataoutput.completeddate = CURRENT_DATE;
+                Widgets.ProjectsLiveForm2.dataoutput.completeddate = Variables.todaysDate_var.dataSet[$i].datetoday;
             }
         };
 

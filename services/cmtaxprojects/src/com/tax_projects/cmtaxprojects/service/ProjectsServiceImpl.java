@@ -13,7 +13,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -29,7 +28,6 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.tax_projects.cmtaxprojects.Projects;
-import com.tax_projects.cmtaxprojects.Workflowlog;
 
 
 /**
@@ -43,10 +41,6 @@ public class ProjectsServiceImpl implements ProjectsService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProjectsServiceImpl.class);
 
-    @Lazy
-    @Autowired
-    @Qualifier("cmtaxprojects.WorkflowlogService")
-    private WorkflowlogService workflowlogService;
 
     @Autowired
     @Qualifier("cmtaxprojects.ProjectsDao")
@@ -165,24 +159,6 @@ public class ProjectsServiceImpl implements ProjectsService {
         return this.wmGenericDao.getAggregatedValues(aggregationInfo, pageable);
     }
 
-    @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
-    @Override
-    public Page<Workflowlog> findAssociatedWorkflowlogs(Integer id, Pageable pageable) {
-        LOGGER.debug("Fetching all associated workflowlogs");
 
-        StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("projects.id = '" + id + "'");
-
-        return workflowlogService.findAll(queryBuilder.toString(), pageable);
-    }
-
-    /**
-     * This setter method should only be used by unit tests
-     *
-     * @param service WorkflowlogService instance
-     */
-    protected void setWorkflowlogService(WorkflowlogService service) {
-        this.workflowlogService = service;
-    }
 
 }

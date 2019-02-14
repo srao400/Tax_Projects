@@ -54,7 +54,6 @@ public class Projects implements Serializable {
     private String statereturn;
     private String efileeligible;
     private Date _1040exdate;
-    private Date _3520exdate;
     private Date _3520aexdate;
     private Date stateexdate;
     private String lastupdatedby;
@@ -63,17 +62,17 @@ public class Projects implements Serializable {
     private String billed;
     private Double fees;
     private Date duedate;
-    private String _3520ext;
     private String _3520aext;
     private String stateext;
     private String _1040ext;
-    private Clients clients;
-    private Users usersByReviewerid;
-    private Workstatus workstatus;
+    private Short taxyear;
     private Users usersByPreparerid;
     private Offices offices;
     private Users usersByPartnerid;
     private Users usersByDispatcherid;
+    private Clients clients;
+    private Users usersByReviewerid;
+    private Workstatus workstatus;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -284,15 +283,6 @@ public class Projects implements Serializable {
         this._1040exdate = _1040exdate;
     }
 
-    @Column(name = "`3520exdate`", nullable = true)
-    public Date get_3520exdate() {
-        return this._3520exdate;
-    }
-
-    public void set_3520exdate(Date _3520exdate) {
-        this._3520exdate = _3520exdate;
-    }
-
     @Column(name = "`3520aexdate`", nullable = true)
     public Date get_3520aexdate() {
         return this._3520aexdate;
@@ -365,15 +355,6 @@ public class Projects implements Serializable {
         this.duedate = duedate;
     }
 
-    @Column(name = "`3520ext`", nullable = true, length = 10)
-    public String get_3520ext() {
-        return this._3520ext;
-    }
-
-    public void set_3520ext(String _3520ext) {
-        this._3520ext = _3520ext;
-    }
-
     @Column(name = "`3520aext`", nullable = true, length = 10)
     public String get_3520aext() {
         return this._3520aext;
@@ -401,49 +382,13 @@ public class Projects implements Serializable {
         this._1040ext = _1040ext;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`clientid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_clients_TO_projects_ItIrax`"))
-    @Fetch(FetchMode.JOIN)
-    public Clients getClients() {
-        return this.clients;
+    @Column(name = "`taxyear`", nullable = true, scale = 0, precision = 5)
+    public Short getTaxyear() {
+        return this.taxyear;
     }
 
-    public void setClients(Clients clients) {
-        if(clients != null) {
-            this.clientid = clients.getId();
-        }
-
-        this.clients = clients;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`reviewerid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_users_TO_projects_ID_mp0Jf`"))
-    @Fetch(FetchMode.JOIN)
-    public Users getUsersByReviewerid() {
-        return this.usersByReviewerid;
-    }
-
-    public void setUsersByReviewerid(Users usersByReviewerid) {
-        if(usersByReviewerid != null) {
-            this.reviewerid = usersByReviewerid.getId();
-        }
-
-        this.usersByReviewerid = usersByReviewerid;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`statusid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_workstatus_TO_projectmDBNy`"))
-    @Fetch(FetchMode.JOIN)
-    public Workstatus getWorkstatus() {
-        return this.workstatus;
-    }
-
-    public void setWorkstatus(Workstatus workstatus) {
-        if(workstatus != null) {
-            this.statusid = workstatus.getId();
-        }
-
-        this.workstatus = workstatus;
+    public void setTaxyear(Short taxyear) {
+        this.taxyear = taxyear;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -504,6 +449,51 @@ public class Projects implements Serializable {
         }
 
         this.usersByDispatcherid = usersByDispatcherid;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`clientid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_clients_TO_projects_ItIrax`"))
+    @Fetch(FetchMode.JOIN)
+    public Clients getClients() {
+        return this.clients;
+    }
+
+    public void setClients(Clients clients) {
+        if(clients != null) {
+            this.clientid = clients.getId();
+        }
+
+        this.clients = clients;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`reviewerid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_users_TO_projects_ID_mp0Jf`"))
+    @Fetch(FetchMode.JOIN)
+    public Users getUsersByReviewerid() {
+        return this.usersByReviewerid;
+    }
+
+    public void setUsersByReviewerid(Users usersByReviewerid) {
+        if(usersByReviewerid != null) {
+            this.reviewerid = usersByReviewerid.getId();
+        }
+
+        this.usersByReviewerid = usersByReviewerid;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`statusid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_workstatus_TO_projectmDBNy`"))
+    @Fetch(FetchMode.JOIN)
+    public Workstatus getWorkstatus() {
+        return this.workstatus;
+    }
+
+    public void setWorkstatus(Workstatus workstatus) {
+        if(workstatus != null) {
+            this.statusid = workstatus.getId();
+        }
+
+        this.workstatus = workstatus;
     }
 
     @Override

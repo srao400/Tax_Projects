@@ -74,13 +74,26 @@ public class EmailService {
     private static final Logger logger = LoggerFactory.getLogger(EmailService.class);
     private Session session;
  
-    private boolean authentication=true;
-    private boolean smtpServerTTLSEnabled = true;
-    private String host = "smtp.gmail.com";
-    private String port = "587";
-    private String username="srao400@gmail.com";
-    private String password="CPletm2)Q";
- 
+    // private boolean authentication=true;
+    // private boolean smtpServerTTLSEnabled = true;
+    // private String host = "email-smtp.us-east-1.amazonaws.com";
+    // private String port = "465";
+    // private String username="AKIAJKGNXTTNBVOK3P4A";
+    // private String password="BFTRO8jRCzcAsVe9AroZlnEb2vuCkhrm2JmdpA56sokt";
+    
+    @Value("${app.environment.authentication}")
+    private boolean authentication;
+    @Value("${app.environment.smtpServerTTLSEnabled}")
+    private boolean smtpServerTTLSEnabled;
+    @Value("${app.environment.host}")
+    private String host;
+    @Value("${app.environment.port}")
+    private String port;
+    @Value("${app.environment.username}")
+    private String username;
+    @Value("${app.environment.password}")
+    private String password;
+     
     @PostConstruct
     public void init() throws Exception {
         Properties props = new Properties();

@@ -24,9 +24,39 @@ public interface CmtaxprojectsQueryExecutorService {
 
     void exportUsersList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
+    Page<DefaultdispatcherResponse> executeDefaultdispatcher(Pageable pageable);
+
+    void exportDefaultdispatcher(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<TestResponse> executeTest(Pageable pageable);
+
+    void exportTest(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<PartnersListResponse> executePartnersList(Pageable pageable);
+
+    void exportPartnersList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Integer executeInsertWorkflowLog(InsertWorkflowLogRequest insertWorkflowLogRequest);
+
+    Page<GetProjectIdResponse> executeGetProjectID(Pageable pageable);
+
+    void exportGetProjectID(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<DefaultreviewerResponse> executeDefaultreviewer(Pageable pageable);
+
+    void exportDefaultreviewer(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<ClientsListResponse> executeClientsList(Pageable pageable);
+
+    void exportClientsList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
     Page<PreparersListResponse> executePreparersList(Pageable pageable);
 
     void exportPreparersList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetCurrentDateResponse> executeGetCurrentDate(Pageable pageable);
+
+    void exportGetCurrentDate(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
     Page<RolesListResponse> executeRolesList(Pageable pageable);
 
@@ -36,30 +66,20 @@ public interface CmtaxprojectsQueryExecutorService {
 
     void exportStatusList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
-    Page<TestResponse> executeTest(Pageable pageable);
+    Page<DuedateResponse> executeDuedate(Pageable pageable);
 
-    void exportTest(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+    void exportDuedate(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
     Page<DispatcherListResponse> executeDispatcherList(Pageable pageable);
 
     void exportDispatcherList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
-    Page<PartnersListResponse> executePartnersList(Pageable pageable);
-
-    void exportPartnersList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
-
     Page<ReviewersListResponse> executeReviewersList(Pageable pageable);
 
     void exportReviewersList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
-    Integer executeInsertWorkflowLog(InsertWorkflowLogRequest insertWorkflowLogRequest);
+    Page<DateTodayResponse> executeDateToday(Pageable pageable);
 
-    Page<GetProjectIdResponse> executeGetProjectID(Pageable pageable);
-
-    void exportGetProjectID(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
-
-    Page<ClientsListResponse> executeClientsList(Pageable pageable);
-
-    void exportClientsList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+    void exportDateToday(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
 }

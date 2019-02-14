@@ -35,7 +35,6 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 import com.tax_projects.cmtaxprojects.Clients;
 import com.tax_projects.cmtaxprojects.Projects;
-import com.tax_projects.cmtaxprojects.Workflowlog;
 import com.tax_projects.cmtaxprojects.service.ClientsService;
 
 
@@ -176,15 +175,6 @@ public class ClientsController {
 
         LOGGER.debug("Fetching all associated projectses");
         return clientsService.findAssociatedProjectses(id, pageable);
-    }
-
-    @RequestMapping(value="/{id:.+}/workflowlogs", method=RequestMethod.GET)
-    @ApiOperation(value = "Gets the workflowlogs instance associated with the given id.")
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Page<Workflowlog> findAssociatedWorkflowlogs(@PathVariable("id") Integer id, Pageable pageable) {
-
-        LOGGER.debug("Fetching all associated workflowlogs");
-        return clientsService.findAssociatedWorkflowlogs(id, pageable);
     }
 
     /**

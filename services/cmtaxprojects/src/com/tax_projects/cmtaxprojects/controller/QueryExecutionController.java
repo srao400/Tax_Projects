@@ -100,6 +100,184 @@ public class QueryExecutionController {
         return new StringWrapper(exportedUrl);
     }
 
+    @RequestMapping(value = "/queries/defaultdispatcher", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "set default dispatcher")
+    public Page<DefaultdispatcherResponse> executeDefaultdispatcher(Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: defaultdispatcher");
+        Page<DefaultdispatcherResponse> _result = queryService.executeDefaultdispatcher(pageable);
+        LOGGER.debug("got the result for named query: defaultdispatcher, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query defaultdispatcher")
+    @RequestMapping(value = "/queries/defaultdispatcher/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportDefaultdispatcher(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: defaultdispatcher");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "defaultdispatcher";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportDefaultdispatcher( exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
+    @RequestMapping(value = "/queries/test", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "test")
+    public Page<TestResponse> executeTest(Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: test");
+        Page<TestResponse> _result = queryService.executeTest(pageable);
+        LOGGER.debug("got the result for named query: test, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query test")
+    @RequestMapping(value = "/queries/test/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportTest(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: test");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "test";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportTest( exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
+    @RequestMapping(value = "/queries/partnersList", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "List of partners")
+    public Page<PartnersListResponse> executePartnersList(Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: partnersList");
+        Page<PartnersListResponse> _result = queryService.executePartnersList(pageable);
+        LOGGER.debug("got the result for named query: partnersList, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query partnersList")
+    @RequestMapping(value = "/queries/partnersList/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportPartnersList(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: partnersList");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "partnersList";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportPartnersList( exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
+    @RequestMapping(value = "/queries/insertWorkflowLog", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Insert row into workflow log")
+    public IntegerWrapper executeInsertWorkflowLog(@Valid @RequestBody InsertWorkflowLogRequest insertWorkflowLogRequest, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: insertWorkflowLog");
+        Integer _result = queryService.executeInsertWorkflowLog(insertWorkflowLogRequest);
+        LOGGER.debug("got the result for named query: insertWorkflowLog, result:{}", _result);
+        return new IntegerWrapper(_result);
+    }
+
+    @RequestMapping(value = "/queries/getProjectID", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Get project ID")
+    public Page<GetProjectIdResponse> executeGetProjectID(Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: getProjectID");
+        Page<GetProjectIdResponse> _result = queryService.executeGetProjectID(pageable);
+        LOGGER.debug("got the result for named query: getProjectID, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query getProjectID")
+    @RequestMapping(value = "/queries/getProjectID/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportGetProjectID(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: getProjectID");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "getProjectID";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportGetProjectID( exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
+    @RequestMapping(value = "/queries/defaultreviewer", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "get default reviewer")
+    public Page<DefaultreviewerResponse> executeDefaultreviewer(Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: defaultreviewer");
+        Page<DefaultreviewerResponse> _result = queryService.executeDefaultreviewer(pageable);
+        LOGGER.debug("got the result for named query: defaultreviewer, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query defaultreviewer")
+    @RequestMapping(value = "/queries/defaultreviewer/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportDefaultreviewer(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: defaultreviewer");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "defaultreviewer";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportDefaultreviewer( exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
+    @RequestMapping(value = "/queries/clientsList", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "List of Clients")
+    public Page<ClientsListResponse> executeClientsList(Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: clientsList");
+        Page<ClientsListResponse> _result = queryService.executeClientsList(pageable);
+        LOGGER.debug("got the result for named query: clientsList, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query clientsList")
+    @RequestMapping(value = "/queries/clientsList/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportClientsList(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: clientsList");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "clientsList";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportClientsList( exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
     @RequestMapping(value = "/queries/preparersList", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "list of preparers")
@@ -124,6 +302,34 @@ public class QueryExecutionController {
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
                         outputStream -> queryService.exportPreparersList( exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
+    @RequestMapping(value = "/queries/getCurrentDate", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "get todays date")
+    public Page<GetCurrentDateResponse> executeGetCurrentDate(Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: getCurrentDate");
+        Page<GetCurrentDateResponse> _result = queryService.executeGetCurrentDate(pageable);
+        LOGGER.debug("got the result for named query: getCurrentDate, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query getCurrentDate")
+    @RequestMapping(value = "/queries/getCurrentDate/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportGetCurrentDate(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: getCurrentDate");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "getCurrentDate";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportGetCurrentDate( exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }
@@ -184,30 +390,30 @@ public class QueryExecutionController {
         return new StringWrapper(exportedUrl);
     }
 
-    @RequestMapping(value = "/queries/test", method = RequestMethod.GET)
+    @RequestMapping(value = "/queries/duedate", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "test")
-    public Page<TestResponse> executeTest(Pageable pageable, HttpServletRequest _request) {
-        LOGGER.debug("Executing named query: test");
-        Page<TestResponse> _result = queryService.executeTest(pageable);
-        LOGGER.debug("got the result for named query: test, result:{}", _result);
+    @ApiOperation(value = "default due date")
+    public Page<DuedateResponse> executeDuedate(Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: duedate");
+        Page<DuedateResponse> _result = queryService.executeDuedate(pageable);
+        LOGGER.debug("got the result for named query: duedate, result:{}", _result);
         return _result;
     }
 
-    @ApiOperation(value = "Returns downloadable file url for query test")
-    @RequestMapping(value = "/queries/test/export", method = RequestMethod.POST)
+    @ApiOperation(value = "Returns downloadable file url for query duedate")
+    @RequestMapping(value = "/queries/duedate/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public StringWrapper exportTest(@RequestBody ExportOptions exportOptions, Pageable pageable) {
-        LOGGER.debug("Exporting named query: test");
+    public StringWrapper exportDuedate(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: duedate");
 
         String exportedFileName = exportOptions.getFileName();
         if(exportedFileName == null || exportedFileName.isEmpty()) {
-            exportedFileName = "test";
+            exportedFileName = "duedate";
         }
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportTest( exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportDuedate( exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }
@@ -240,34 +446,6 @@ public class QueryExecutionController {
         return new StringWrapper(exportedUrl);
     }
 
-    @RequestMapping(value = "/queries/partnersList", method = RequestMethod.GET)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "List of partners")
-    public Page<PartnersListResponse> executePartnersList(Pageable pageable, HttpServletRequest _request) {
-        LOGGER.debug("Executing named query: partnersList");
-        Page<PartnersListResponse> _result = queryService.executePartnersList(pageable);
-        LOGGER.debug("got the result for named query: partnersList, result:{}", _result);
-        return _result;
-    }
-
-    @ApiOperation(value = "Returns downloadable file url for query partnersList")
-    @RequestMapping(value = "/queries/partnersList/export", method = RequestMethod.POST)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public StringWrapper exportPartnersList(@RequestBody ExportOptions exportOptions, Pageable pageable) {
-        LOGGER.debug("Exporting named query: partnersList");
-
-        String exportedFileName = exportOptions.getFileName();
-        if(exportedFileName == null || exportedFileName.isEmpty()) {
-            exportedFileName = "partnersList";
-        }
-        exportedFileName += exportOptions.getExportType().getExtension();
-
-        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportPartnersList( exportOptions, pageable, outputStream));
-
-        return new StringWrapper(exportedUrl);
-    }
-
     @RequestMapping(value = "/queries/reviewersList", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "List of reviewers")
@@ -296,68 +474,30 @@ public class QueryExecutionController {
         return new StringWrapper(exportedUrl);
     }
 
-    @RequestMapping(value = "/queries/insertWorkflowLog", method = RequestMethod.POST)
+    @RequestMapping(value = "/queries/dateToday", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "Insert row into workflow log")
-    public IntegerWrapper executeInsertWorkflowLog(@Valid @RequestBody InsertWorkflowLogRequest insertWorkflowLogRequest, HttpServletRequest _request) {
-        LOGGER.debug("Executing named query: insertWorkflowLog");
-        Integer _result = queryService.executeInsertWorkflowLog(insertWorkflowLogRequest);
-        LOGGER.debug("got the result for named query: insertWorkflowLog, result:{}", _result);
-        return new IntegerWrapper(_result);
-    }
-
-    @RequestMapping(value = "/queries/getProjectID", method = RequestMethod.GET)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "Get project ID")
-    public Page<GetProjectIdResponse> executeGetProjectID(Pageable pageable, HttpServletRequest _request) {
-        LOGGER.debug("Executing named query: getProjectID");
-        Page<GetProjectIdResponse> _result = queryService.executeGetProjectID(pageable);
-        LOGGER.debug("got the result for named query: getProjectID, result:{}", _result);
+    @ApiOperation(value = "Todays Date")
+    public Page<DateTodayResponse> executeDateToday(Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: dateToday");
+        Page<DateTodayResponse> _result = queryService.executeDateToday(pageable);
+        LOGGER.debug("got the result for named query: dateToday, result:{}", _result);
         return _result;
     }
 
-    @ApiOperation(value = "Returns downloadable file url for query getProjectID")
-    @RequestMapping(value = "/queries/getProjectID/export", method = RequestMethod.POST)
+    @ApiOperation(value = "Returns downloadable file url for query dateToday")
+    @RequestMapping(value = "/queries/dateToday/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public StringWrapper exportGetProjectID(@RequestBody ExportOptions exportOptions, Pageable pageable) {
-        LOGGER.debug("Exporting named query: getProjectID");
+    public StringWrapper exportDateToday(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: dateToday");
 
         String exportedFileName = exportOptions.getFileName();
         if(exportedFileName == null || exportedFileName.isEmpty()) {
-            exportedFileName = "getProjectID";
+            exportedFileName = "dateToday";
         }
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportGetProjectID( exportOptions, pageable, outputStream));
-
-        return new StringWrapper(exportedUrl);
-    }
-
-    @RequestMapping(value = "/queries/clientsList", method = RequestMethod.GET)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "List of Clients")
-    public Page<ClientsListResponse> executeClientsList(Pageable pageable, HttpServletRequest _request) {
-        LOGGER.debug("Executing named query: clientsList");
-        Page<ClientsListResponse> _result = queryService.executeClientsList(pageable);
-        LOGGER.debug("got the result for named query: clientsList, result:{}", _result);
-        return _result;
-    }
-
-    @ApiOperation(value = "Returns downloadable file url for query clientsList")
-    @RequestMapping(value = "/queries/clientsList/export", method = RequestMethod.POST)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public StringWrapper exportClientsList(@RequestBody ExportOptions exportOptions, Pageable pageable) {
-        LOGGER.debug("Exporting named query: clientsList");
-
-        String exportedFileName = exportOptions.getFileName();
-        if(exportedFileName == null || exportedFileName.isEmpty()) {
-            exportedFileName = "clientsList";
-        }
-        exportedFileName += exportOptions.getExportType().getExtension();
-
-        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportClientsList( exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportDateToday( exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }

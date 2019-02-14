@@ -29,7 +29,6 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.tax_projects.cmtaxprojects.Projects;
-import com.tax_projects.cmtaxprojects.Workflowlog;
 import com.tax_projects.cmtaxprojects.Workstatus;
 
 
@@ -48,11 +47,6 @@ public class WorkstatusServiceImpl implements WorkstatusService {
     @Autowired
     @Qualifier("cmtaxprojects.ProjectsService")
     private ProjectsService projectsService;
-
-    @Lazy
-    @Autowired
-    @Qualifier("cmtaxprojects.WorkflowlogService")
-    private WorkflowlogService workflowlogService;
 
     @Autowired
     @Qualifier("cmtaxprojects.WorkstatusDao")
@@ -182,17 +176,6 @@ public class WorkstatusServiceImpl implements WorkstatusService {
         return projectsService.findAll(queryBuilder.toString(), pageable);
     }
 
-    @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
-    @Override
-    public Page<Workflowlog> findAssociatedWorkflowlogs(Integer id, Pageable pageable) {
-        LOGGER.debug("Fetching all associated workflowlogs");
-
-        StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("workstatus.id = '" + id + "'");
-
-        return workflowlogService.findAll(queryBuilder.toString(), pageable);
-    }
-
     /**
      * This setter method should only be used by unit tests
      *
@@ -200,15 +183,6 @@ public class WorkstatusServiceImpl implements WorkstatusService {
      */
     protected void setProjectsService(ProjectsService service) {
         this.projectsService = service;
-    }
-
-    /**
-     * This setter method should only be used by unit tests
-     *
-     * @param service WorkflowlogService instance
-     */
-    protected void setWorkflowlogService(WorkflowlogService service) {
-        this.workflowlogService = service;
     }
 
 }

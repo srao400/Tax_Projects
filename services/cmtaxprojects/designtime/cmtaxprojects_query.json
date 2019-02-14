@@ -121,6 +121,120 @@
       } ]
     }
   },
+  "dateToday" : {
+    "name" : "dateToday",
+    "description" : "Todays Date",
+    "version" : "V2",
+    "queryString" : "SELECT CURDATE() AS DATETODAY",
+    "countQueryString" : "select count(*) from (SELECT CURDATE() AS DATETODAY) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.tax_projects.cmtaxprojects.models.query.DateTodayResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "DATETODAY",
+        "fieldName" : "datetoday",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "defaultdispatcher" : {
+    "name" : "defaultdispatcher",
+    "description" : "set default dispatcher",
+    "version" : "V2",
+    "queryString" : "select id, concat(firstname, ' ', lastname) as dispatcher from users where id = 2",
+    "countQueryString" : "select count(*) from (select id, concat(firstname, ' ', lastname) as dispatcher from users where id = 2) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.tax_projects.cmtaxprojects.models.query.DefaultdispatcherResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "dispatcher",
+        "fieldName" : "dispatcher",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "defaultreviewer" : {
+    "name" : "defaultreviewer",
+    "description" : "get default reviewer",
+    "version" : "V2",
+    "queryString" : "Select id, concat(firstname, ' ', lastname) as reviewer from users where id = 1",
+    "countQueryString" : "select count(*) from (Select id, concat(firstname, ' ', lastname) as reviewer from users where id = 1) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.tax_projects.cmtaxprojects.models.query.DefaultreviewerResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "reviewer",
+        "fieldName" : "reviewer",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
   "dispatcherList" : {
     "name" : "dispatcherList",
     "description" : "List of dispatchers",
@@ -175,6 +289,70 @@
         "fieldType" : {
           "type" : "PRIMITIVE",
           "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "duedate" : {
+    "name" : "duedate",
+    "description" : "default due date",
+    "version" : "V2",
+    "queryString" : "SELECT DATE_ADD(CURDATE(), INTERVAL 14 DAY) AS DUEDATE",
+    "countQueryString" : "select count(*) from (SELECT DATE_ADD(CURDATE(), INTERVAL 14 DAY) AS DUEDATE) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.tax_projects.cmtaxprojects.models.query.DuedateResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "DUEDATE",
+        "fieldName" : "duedate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getCurrentDate" : {
+    "name" : "getCurrentDate",
+    "description" : "get todays date",
+    "version" : "V2",
+    "queryString" : "select CURRENT_DATE",
+    "countQueryString" : "select count(*) from (select CURRENT_DATE) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.tax_projects.cmtaxprojects.models.query.GetCurrentDateResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "CURRENT_DATE",
+        "fieldName" : "currentDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
           "list" : false
         }
       } ]
