@@ -323,6 +323,8 @@
     "saveInPhonegap" : false,
     "maxResults" : 20,
     "designMaxResults" : 10,
+    "onBeforeUpdate" : "Variables.updateColumnUSforms_var.invoke()",
+    "onSuccess" : "Variables.getProjectId_var.invoke();Variables.updateColumnUSforms_var.invoke()",
     "inFlightBehavior" : "executeLast",
     "startUpdate" : true,
     "autoUpdate" : true,
@@ -1563,7 +1565,18 @@
       "watchOn" : "CmtaxprojectsOfficesData",
       "package" : "com.tax_projects.cmtaxprojects.Projects"
     } ],
-    "filterExpressions" : { },
+    "filterFields" : { },
+    "filterExpressions" : {
+      "condition" : "AND",
+      "rules" : [ {
+        "target" : "",
+        "type" : "string",
+        "matchMode" : "anywhereignorecase",
+        "value" : "",
+        "required" : false,
+        "secondvalue" : ""
+      } ]
+    },
     "package" : "com.tax_projects.cmtaxprojects.Projects"
   },
   "CmtaxprojectsRolesData" : {
@@ -2121,6 +2134,28 @@
     "isList" : true,
     "saveInPhonegap" : false
   },
+  "dateToday_var" : {
+    "_id" : "wm-dateToday_var-wm.ServiceVariable-1550260259705",
+    "name" : "dateToday_var",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.tax_projects.cmtaxprojects.models.query.DateTodayResponse",
+    "service" : "cmtaxprojects",
+    "operation" : "executeDateToday",
+    "operationId" : "QueryExecutionController_executeDateToday",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
   "defaulStatus_var" : {
     "_id" : "wm-defaulStatus_var-wm.ServiceVariable-1550192661642",
     "name" : "defaulStatus_var",
@@ -2259,7 +2294,7 @@
     "dataSet" : [ ],
     "isList" : true,
     "maxResults" : 20,
-    "startUpdate" : false,
+    "startUpdate" : true,
     "autoUpdate" : true,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
@@ -2722,6 +2757,23 @@
     "saveInPhonegap" : false,
     "controller" : "Email"
   },
+  "staticVariable1" : {
+    "_id" : "wm-staticVariable1-wm.Variable-1550259448597",
+    "name" : "staticVariable1",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "dataValue" : "2018"
+    }, {
+      "dataValue" : "2019"
+    }, {
+      "dataValue" : "2020"
+    } ],
+    "type" : "number",
+    "isList" : true,
+    "saveInPhonegap" : false
+  },
   "status_var" : {
     "_id" : "wm-status_var-wm.ServiceVariable-1549994999413",
     "name" : "status_var",
@@ -2761,6 +2813,28 @@
     "isList" : true,
     "saveInPhonegap" : false
   },
+  "taxYear_var" : {
+    "_id" : "wm-taxYear_var-wm.ServiceVariable-1550256258109",
+    "name" : "taxYear_var",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.tax_projects.cmtaxprojects.models.query.TaxyearResponse",
+    "service" : "cmtaxprojects",
+    "operation" : "executeTaxyear",
+    "operationId" : "QueryExecutionController_executeTaxyear",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
   "ten40_var" : {
     "_id" : "wm-ten40_var-wm.Variable-1550008661378",
     "name" : "ten40_var",
@@ -2796,6 +2870,32 @@
     "isList" : true,
     "maxResults" : 20,
     "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
+  "updateColumnUSforms_var" : {
+    "_id" : "wm-updateColumnUSforms_var-wm.ServiceVariable-1550260633760",
+    "name" : "updateColumnUSforms_var",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "id",
+      "value" : "bind:Variables.getProjectId_var.dataSet[$i].max_id_",
+      "type" : "integer"
+    } ],
+    "type" : "com.wavemaker.commons.wrapper.IntegerWrapper",
+    "service" : "cmtaxprojects",
+    "operation" : "executeUpdateusforms",
+    "operationId" : "QueryExecutionController_executeUpdateusforms",
+    "operationType" : "put",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
     "autoUpdate" : true,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
@@ -2853,9 +2953,9 @@
     "category" : "wm.Variable",
     "dataBinding" : [ ],
     "dataSet" : [ {
-      "dataValue" : "Yes"
-    }, {
       "dataValue" : "No"
+    }, {
+      "dataValue" : "Yes"
     } ],
     "type" : "string",
     "isList" : true,

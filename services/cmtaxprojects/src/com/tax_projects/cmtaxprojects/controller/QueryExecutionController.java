@@ -128,6 +128,34 @@ public class QueryExecutionController {
         return new StringWrapper(exportedUrl);
     }
 
+    @RequestMapping(value = "/queries/taxyear", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "get tax year")
+    public Page<TaxyearResponse> executeTaxyear(Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: taxyear");
+        Page<TaxyearResponse> _result = queryService.executeTaxyear(pageable);
+        LOGGER.debug("got the result for named query: taxyear, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query taxyear")
+    @RequestMapping(value = "/queries/taxyear/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportTaxyear(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: taxyear");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "taxyear";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportTaxyear( exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
     @RequestMapping(value = "/queries/test", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "test")
@@ -276,6 +304,16 @@ public class QueryExecutionController {
                         outputStream -> queryService.exportClientsList( exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
+    }
+
+    @RequestMapping(value = "/queries/updateusforms", method = RequestMethod.PUT)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "update column us forms")
+    public IntegerWrapper executeUpdateusforms(@Valid @RequestBody UpdateusformsRequest updateusformsRequest, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: updateusforms");
+        Integer _result = queryService.executeUpdateusforms(updateusformsRequest);
+        LOGGER.debug("got the result for named query: updateusforms, result:{}", _result);
+        return new IntegerWrapper(_result);
     }
 
     @RequestMapping(value = "/queries/defaultStatus", method = RequestMethod.GET)

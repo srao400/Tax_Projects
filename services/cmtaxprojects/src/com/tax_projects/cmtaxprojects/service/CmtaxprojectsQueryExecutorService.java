@@ -28,6 +28,10 @@ public interface CmtaxprojectsQueryExecutorService {
 
     void exportDefaultdispatcher(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
+    Page<TaxyearResponse> executeTaxyear(Pageable pageable);
+
+    void exportTaxyear(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
     Page<TestResponse> executeTest(Pageable pageable);
 
     void exportTest(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
@@ -49,6 +53,8 @@ public interface CmtaxprojectsQueryExecutorService {
     Page<ClientsListResponse> executeClientsList(Pageable pageable);
 
     void exportClientsList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Integer executeUpdateusforms(UpdateusformsRequest updateusformsRequest);
 
     Page<DefaultStatusResponse> executeDefaultStatus(Pageable pageable);
 

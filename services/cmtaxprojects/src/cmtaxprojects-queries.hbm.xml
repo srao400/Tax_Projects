@@ -70,6 +70,18 @@ order by user) wmTempTable
         ]]>
     </sql-query>
 
+    <sql-query name="taxyear">
+        <![CDATA[
+        Select Year(CurDate())-1 as taxyear
+        ]]>
+    </sql-query>
+
+    <sql-query name="taxyear__count">
+        <![CDATA[
+        select count(*) from (Select Year(CurDate())-1 as taxyear) wmTempTable
+        ]]>
+    </sql-query>
+
     <sql-query name="test">
         <![CDATA[
         SELECT a.userid, a.notifyid, a.projectid,
@@ -167,6 +179,15 @@ LEFT JOIN projects as b on a.projectid = b.id) wmTempTable
         <![CDATA[
         select count(*) from (select * from clients) wmTempTable
         ]]>
+    </sql-query>
+
+    <sql-query name="updateusforms">
+        <![CDATA[
+        update projects Set usforms = 
+Concat(Case when f1040 <> 'N/A' Then f1040 Else '' End, Case when f3520 = 'Yes' Then ', 3520' Else '' End,  Case when f3520a = 'Yes' Then ', 3520A' Else '' End,  Case when fbar = 'Yes' Then ', FBAR' Else '' End,  Case when statereturn = 'Yes' Then ', State Returns' Else '' End) 
+Where id = :id
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
     </sql-query>
 
     <sql-query name="defaultStatus">

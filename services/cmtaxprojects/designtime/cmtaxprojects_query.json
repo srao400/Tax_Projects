@@ -888,6 +888,38 @@
       } ]
     }
   },
+  "taxyear" : {
+    "name" : "taxyear",
+    "description" : "get tax year",
+    "version" : "V2",
+    "queryString" : "Select Year(CurDate())-1 as taxyear",
+    "countQueryString" : "select count(*) from (Select Year(CurDate())-1 as taxyear) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.tax_projects.cmtaxprojects.models.query.TaxyearResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "taxyear",
+        "fieldName" : "taxyear",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
   "test" : {
     "name" : "test",
     "description" : "test",
@@ -945,6 +977,36 @@
           "list" : false
         }
       } ]
+    }
+  },
+  "updateusforms" : {
+    "name" : "updateusforms",
+    "description" : "update column us forms",
+    "version" : "V2",
+    "queryString" : "update projects Set usforms = \nConcat(Case when f1040 <> 'N/A' Then f1040 Else '' End, Case when f3520 = 'Yes' Then ', 3520' Else '' End,  Case when f3520a = 'Yes' Then ', 3520A' Else '' End,  Case when fbar = 'Yes' Then ', FBAR' Else '' End,  Case when statereturn = 'Yes' Then ', State Returns' Else '' End) \nWhere id = :id",
+    "countQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "UPDATE",
+    "parameters" : [ {
+      "name" : "id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "28",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.tax_projects.cmtaxprojects.models.query.UpdateusformsRequest",
+      "method" : "PUT"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
     }
   },
   "usersList" : {

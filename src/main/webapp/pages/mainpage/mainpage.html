@@ -31,8 +31,8 @@
                                 <wm-layoutgrid columns="2" name="layoutgrid7">
                                     <wm-gridrow name="gridrow43">
                                         <wm-gridcolumn columnwidth="6" name="gridcolumn77">
-                                            <wm-form-field name="taxyear" displayname="Tax year" show="true" primary-key="false" generator="assigned" period="false" key="taxyear" type="short" readonly="false" required="true" step="0" widget="number" inputtype="number"
-                                                placeholder="Enter value" defaultvalue="2018"></wm-form-field>
+                                            <wm-form-field name="taxyear" displayname="Tax year" show="true" primary-key="false" generator="assigned" period="false" key="taxyear" type="short" maxvalue="2025" readonly="false" step="0" widget="select" defaultvalue="bind:Variables.taxYear_var.dataSet[$i].taxyear"
+                                                minvalue="2018" placeholder="Select value" dataset="bind:Variables.taxYear_var.dataSet[$i].taxyear"></wm-form-field>
                                         </wm-gridcolumn>
                                         <wm-gridcolumn columnwidth="6" name="gridcolumn78">
                                             <wm-form-field name="clients" displayname="Client" show="true" primary-key="false" generator="assigned" period="false" key="clients" type="list" is-related="true" readonly="false" required="true" widget="select"
@@ -55,7 +55,7 @@
                                     <wm-gridrow name="gridrow45">
                                         <wm-gridcolumn columnwidth="6" name="gridcolumn81">
                                             <wm-form-field name="receiveddate" displayname="Date received" show="true" primary-key="false" generator="assigned" period="false" key="receiveddate" type="date" readonly="false" required="true" widget="date" placeholder="Select date"
-                                                outputformat="yyyy-MM-dd" defaultvalue="CURRENT_DATE"></wm-form-field>
+                                                outputformat="yyyy-MM-dd" defaultvalue="bind:Variables.dateToday_var.dataSet[$i].datetoday"></wm-form-field>
                                         </wm-gridcolumn>
                                         <wm-gridcolumn columnwidth="6" name="gridcolumn82">
                                             <wm-form-field name="duedate" displayname="Date due" show="true" primary-key="false" generator="assigned" period="false" key="duedate" type="date" readonly="false" required="true" widget="date" excludedays="0,6"
@@ -99,90 +99,88 @@
                                     <wm-gridrow name="gridrow49">
                                         <wm-gridcolumn columnwidth="6" name="gridcolumn89">
                                             <wm-form-field name="ext1040" displayname="1040 extension filed?" show="true" primary-key="false" generator="assigned" period="false" key="ext1040" type="string" readonly="false" widget="select" maxchars="10" placeholder="Select value"
-                                                dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue" defaultvalue="No"></wm-form-field>
+                                                dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue" defaultvalue="bind:Variables.yesNo_var.dataSet[$i].dataValue"></wm-form-field>
                                         </wm-gridcolumn>
                                         <wm-gridcolumn columnwidth="6" name="gridcolumn90">
                                             <wm-form-field name="statereturn" displayname="State return" show="true" primary-key="false" generator="assigned" period="false" key="statereturn" type="string" readonly="false" widget="select" maxchars="255" placeholder="Select value"
-                                                dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue" defaultvalue="No"></wm-form-field>
+                                                dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue" defaultvalue="bind:Variables.yesNo_var.dataSet[$i].dataValue"></wm-form-field>
                                         </wm-gridcolumn>
                                     </wm-gridrow>
                                     <wm-gridrow name="gridrow50">
                                         <wm-gridcolumn columnwidth="6" name="gridcolumn91">
                                             <wm-form-field name="stateext" displayname="State return extension filed?" show="true" primary-key="false" generator="assigned" period="false" key="stateext" type="string" readonly="false" widget="select" maxchars="10"
-                                                dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue" defaultvalue="No" placeholder="Select value"></wm-form-field>
+                                                dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue" defaultvalue="bind:Variables.yesNo_var.dataSet[$i].dataValue" placeholder="Select value"></wm-form-field>
                                         </wm-gridcolumn>
                                         <wm-gridcolumn columnwidth="6" name="gridcolumn92">
                                             <wm-form-field name="f3520" displayname="3520" show="true" primary-key="false" generator="assigned" period="false" key="f3520" type="string" readonly="false" widget="select" maxchars="20" placeholder="Select value"
-                                                dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue" defaultvalue="No"></wm-form-field>
+                                                dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue" defaultvalue="bind:Variables.yesNo_var.dataSet[$i].dataValue"></wm-form-field>
                                         </wm-gridcolumn>
                                     </wm-gridrow>
                                     <wm-gridrow name="gridrow51">
                                         <wm-gridcolumn columnwidth="6" name="gridcolumn93">
                                             <wm-form-field name="f3520a" displayname="3520A" show="true" primary-key="false" generator="assigned" period="false" key="f3520a" type="string" readonly="false" widget="select" maxchars="20" placeholder="Select value"
-                                                dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue" defaultvalue="No"></wm-form-field>
+                                                dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue" defaultvalue="bind:Variables.yesNo_var.dataSet[$i].dataValue"></wm-form-field>
                                         </wm-gridcolumn>
                                         <wm-gridcolumn columnwidth="6" name="gridcolumn94">
                                             <wm-form-field name="ext3520a" displayname="3520A extension filed?" show="true" primary-key="false" generator="assigned" period="false" key="ext3520a" type="string" readonly="false" widget="select" maxchars="10"
-                                                placeholder="Select value" defaultvalue="No" dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue"></wm-form-field>
+                                                placeholder="Select value" defaultvalue="bind:Variables.yesNo_var.dataSet[$i].dataValue" dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue"></wm-form-field>
                                         </wm-gridcolumn>
                                     </wm-gridrow>
                                     <wm-gridrow name="gridrow52">
                                         <wm-gridcolumn columnwidth="6" name="gridcolumn95">
                                             <wm-form-field name="fbar" displayname="FBAR" show="true" primary-key="false" generator="assigned" period="false" key="fbar" type="string" readonly="false" widget="select" maxchars="20" placeholder="Select value"
-                                                dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue" defaultvalue="No"></wm-form-field>
+                                                dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue" defaultvalue="bind:Variables.yesNo_var.dataSet[$i].dataValue"></wm-form-field>
                                         </wm-gridcolumn>
                                         <wm-gridcolumn columnwidth="6" name="gridcolumn96">
-                                            <wm-form-field name="futureuse" displayname="Futureuse" show="false" primary-key="false" generator="assigned" period="false" key="futureuse" type="string" readonly="false" required="false" widget="text" maxchars="255"
-                                                disabled="true"></wm-form-field>
+                                            <wm-form-field name="description" displayname="Description" show="true" primary-key="false" generator="assigned" period="false" key="description" type="string" readonly="false" widget="textarea" maxchars="255" placeholder="Enter value"></wm-form-field>
                                         </wm-gridcolumn>
                                     </wm-gridrow>
                                     <wm-gridrow name="gridrow53">
                                         <wm-gridcolumn columnwidth="6" name="gridcolumn97">
-                                            <wm-form-field name="description" displayname="Description" show="true" primary-key="false" generator="assigned" period="false" key="description" type="string" readonly="false" widget="textarea" maxchars="255" placeholder="Enter value"></wm-form-field>
+                                            <wm-form-field name="comments" displayname="Comments" show="true" primary-key="false" generator="assigned" period="false" key="comments" type="string" readonly="false" widget="textarea" maxchars="255" placeholder="Enter value"></wm-form-field>
                                         </wm-gridcolumn>
                                         <wm-gridcolumn columnwidth="6" name="gridcolumn98">
-                                            <wm-form-field name="comments" displayname="Comments" show="true" primary-key="false" generator="assigned" period="false" key="comments" type="string" readonly="false" widget="textarea" maxchars="255" placeholder="Enter value"></wm-form-field>
+                                            <wm-form-field name="prepareddate" displayname="Date prepared" show="true" primary-key="false" generator="assigned" period="false" key="prepareddate" type="date" readonly="false" required="false" widget="date" placeholder="Select date"
+                                                outputformat="yyyy-MM-dd"></wm-form-field>
                                         </wm-gridcolumn>
                                     </wm-gridrow>
                                     <wm-gridrow name="gridrow54">
                                         <wm-gridcolumn columnwidth="6" name="gridcolumn99">
-                                            <wm-form-field name="prepareddate" displayname="Date prepared" show="true" primary-key="false" generator="assigned" period="false" key="prepareddate" type="date" readonly="false" required="false" widget="date" placeholder="Select date"
+                                            <wm-form-field name="revieweddate" displayname="Date reviewed" show="true" primary-key="false" generator="assigned" period="false" key="revieweddate" type="date" readonly="false" required="false" widget="date" placeholder="Select date"
                                                 outputformat="yyyy-MM-dd"></wm-form-field>
                                         </wm-gridcolumn>
                                         <wm-gridcolumn name="gridcolumn1" columnwidth="6">
-                                            <wm-form-field name="revieweddate" displayname="Date reviewed" show="true" primary-key="false" generator="assigned" period="false" key="revieweddate" type="date" readonly="false" required="false" widget="date" placeholder="Select date"
-                                                outputformat="yyyy-MM-dd"></wm-form-field>
+                                            <wm-form-field name="efileeligible" displayname="e-file eligible" show="true" primary-key="false" generator="assigned" period="false" key="efileeligible" type="string" readonly="false" widget="select" maxchars="1"
+                                                placeholder="Select value" dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue" defaultvalue="bind:Variables.yesNo_var.dataSet[$i].dataValue"></wm-form-field>
                                         </wm-gridcolumn>
                                     </wm-gridrow>
                                     <wm-gridrow name="gridrow1">
                                         <wm-gridcolumn name="gridcolumn1" columnwidth="6">
-                                            <wm-form-field name="efileeligible" displayname="e-file eligible" show="true" primary-key="false" generator="assigned" period="false" key="efileeligible" type="string" readonly="false" widget="select" maxchars="1"
-                                                placeholder="Select value" dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue" defaultvalue="No"></wm-form-field>
-                                        </wm-gridcolumn>
-                                        <wm-gridcolumn name="gridcolumn2" columnwidth="6">
                                             <wm-form-field name="completeddate" displayname="Date completed" show="true" primary-key="false" generator="assigned" period="false" key="completeddate" type="date" readonly="false" required="false" widget="date"
                                                 placeholder="Select date" outputformat="yyyy-MM-dd"></wm-form-field>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn name="gridcolumn2" columnwidth="6">
+                                            <wm-form-field name="billed" displayname="Billed" show="true" primary-key="false" generator="assigned" period="false" key="billed" type="string" readonly="false" widget="select" maxchars="10" placeholder="Select value"
+                                                dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue" defaultvalue="bind:Variables.yesNo_var.dataSet[$i].dataValue"></wm-form-field>
                                         </wm-gridcolumn>
                                     </wm-gridrow>
                                     <wm-gridrow name="gridrow2">
                                         <wm-gridcolumn name="gridcolumn3" columnwidth="6">
-                                            <wm-form-field name="billed" displayname="Billed" show="true" primary-key="false" generator="assigned" period="false" key="billed" type="string" readonly="false" widget="select" maxchars="10" placeholder="Select value"
-                                                dataset="bind:Variables.yesNo_var.dataSet" datafield="dataValue" displayfield="dataValue" defaultvalue="No"></wm-form-field>
-                                        </wm-gridcolumn>
-                                        <wm-gridcolumn name="gridcolumn1" columnwidth="6">
                                             <wm-form-field name="fees" displayname="Fees" show="true" primary-key="false" generator="assigned" period="false" key="fees" type="double" readonly="false" step="0.01" widget="currency" placeholder="Enter value"
                                                 currency="CAD" minvalue="1"></wm-form-field>
                                         </wm-gridcolumn>
                                     </wm-gridrow>
                                 </wm-layoutgrid>
-                                <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" period="false" key="id" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
-                                <wm-form-field name="lastupdatedby" show="false" primary-key="false" generator="assigned" period="false" key="lastupdatedby" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text"
-                                    placeholder="" autocomplete="false" disabled="true"></wm-form-field>
-                                <wm-form-field name="dummy" show="false" primary-key="false" generator="assigned" period="false" key="dummy" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text"
-                                    placeholder="" autocomplete="false" disabled="true"></wm-form-field>
+                                <wm-form-field name="dummy" show="false" primary-key="false" generator="assigned" period="false" key="dummy" type="string" readonly="false" required="true" widget="text" maxchars="255" inputtype="text" placeholder="" autocomplete="false"
+                                    disabled="true" defaultvalue="bind:Variables.yesNo_var.dataSet[$i].dataValue"></wm-form-field>
+                                <wm-form-field name="lastupdatedby" show="false" primary-key="false" generator="assigned" period="false" key="lastupdatedby" type="string" readonly="false" required="true" widget="text" maxchars="255" inputtype="text"
+                                    placeholder="" autocomplete="false" disabled="true" defaultvalue="bind:Variables.loggedInUser.dataSet.name"></wm-form-field>
+                                <wm-form-field name="futureuse" displayname="Futureuse" show="false" primary-key="false" generator="assigned" period="false" key="futureuse" type="string" readonly="false" required="true" widget="text" maxchars="255"
+                                    disabled="true" inputtype="text" placeholder="Enter value" autocomplete="false" defaultvalue="bind:Variables.yesNo_var.dataSet[$i].dataValue"></wm-form-field>
+                                <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" period="false" key="id" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number"
+                                    placeholder="Enter value"></wm-form-field>
                                 <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" disabled="false" type="button" update-mode="true"></wm-form-action>
-                                <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" action="Variables.sendMailVar.invoke();Variables.updateUSforms_var.invoke()"
-                                    disabled="false" type="submit" update-mode="true"></wm-form-action>
+                                <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" action="" disabled="false" type="submit" update-mode="true"></wm-form-action>
                             </wm-liveform>
                         </wm-livetable>
                     </wm-container>
