@@ -153,12 +153,62 @@
       } ]
     }
   },
+  "defaultStatus" : {
+    "name" : "defaultStatus",
+    "description" : "get default status",
+    "version" : "V2",
+    "queryString" : "Select * from workstatus where id = 1",
+    "countQueryString" : "select count(*) from (Select * from workstatus where id = 1) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.tax_projects.cmtaxprojects.models.query.DefaultStatusResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "ID",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "status",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "notifyrole",
+        "fieldName" : "notifyrole",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
   "defaultdispatcher" : {
     "name" : "defaultdispatcher",
     "description" : "set default dispatcher",
     "version" : "V2",
-    "queryString" : "select id, concat(firstname, ' ', lastname) as dispatcher from users where id = 2",
-    "countQueryString" : "select count(*) from (select id, concat(firstname, ' ', lastname) as dispatcher from users where id = 2) wmTempTable",
+    "queryString" : "select id, empname as dispatcher from users where id = 2",
+    "countQueryString" : "select count(*) from (select id, empname as dispatcher from users where id = 2) wmTempTable",
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
@@ -198,8 +248,8 @@
     "name" : "defaultreviewer",
     "description" : "get default reviewer",
     "version" : "V2",
-    "queryString" : "Select id, concat(firstname, ' ', lastname) as reviewer from users where id = 1",
-    "countQueryString" : "select count(*) from (Select id, concat(firstname, ' ', lastname) as reviewer from users where id = 1) wmTempTable",
+    "queryString" : "Select id, empname as reviewer from users where id = 1",
+    "countQueryString" : "select count(*) from (Select id, empname as reviewer from users where id = 1) wmTempTable",
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
@@ -239,8 +289,8 @@
     "name" : "dispatcherList",
     "description" : "List of dispatchers",
     "version" : "V2",
-    "queryString" : "select id, username, firstname, lastname from users where roleid = 4",
-    "countQueryString" : "select count(*) from (select id, username, firstname, lastname from users where roleid = 4) wmTempTable",
+    "queryString" : "select id, username, empname from users where roleid = 4",
+    "countQueryString" : "select count(*) from (select id, username, empname from users where roleid = 4) wmTempTable",
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
@@ -274,17 +324,8 @@
           "list" : false
         }
       }, {
-        "name" : "firstname",
-        "fieldName" : "firstname",
-        "optional" : false,
-        "fieldType" : {
-          "type" : "PRIMITIVE",
-          "typeRef" : "java.lang.String",
-          "list" : false
-        }
-      }, {
-        "name" : "lastname",
-        "fieldName" : "lastname",
+        "name" : "empname",
+        "fieldName" : "empname",
         "optional" : false,
         "fieldType" : {
           "type" : "PRIMITIVE",
@@ -488,8 +529,8 @@
     "name" : "partnersList",
     "description" : "List of partners",
     "version" : "V2",
-    "queryString" : "select id, username, firstname, lastname from users where roleid = 3",
-    "countQueryString" : "select count(*) from (select id, username, firstname, lastname from users where roleid = 3) wmTempTable",
+    "queryString" : "select id, username, empname from users where roleid = 3",
+    "countQueryString" : "select count(*) from (select id, username, empname from users where roleid = 3) wmTempTable",
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
@@ -523,17 +564,8 @@
           "list" : false
         }
       }, {
-        "name" : "firstname",
-        "fieldName" : "firstname",
-        "optional" : false,
-        "fieldType" : {
-          "type" : "PRIMITIVE",
-          "typeRef" : "java.lang.String",
-          "list" : false
-        }
-      }, {
-        "name" : "lastname",
-        "fieldName" : "lastname",
+        "name" : "empname",
+        "fieldName" : "empname",
         "optional" : false,
         "fieldType" : {
           "type" : "PRIMITIVE",
@@ -547,8 +579,8 @@
     "name" : "preparersList",
     "description" : "list of preparers",
     "version" : "V2",
-    "queryString" : "select id, username, firstname, lastname from users where roleid = 1",
-    "countQueryString" : "select count(*) from (select id, username, firstname, lastname from users where roleid = 1) wmTempTable",
+    "queryString" : "select id, username, empname from users where roleid = 1",
+    "countQueryString" : "select count(*) from (select id, username, empname from users where roleid = 1) wmTempTable",
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
@@ -582,17 +614,8 @@
           "list" : false
         }
       }, {
-        "name" : "firstname",
-        "fieldName" : "firstname",
-        "optional" : false,
-        "fieldType" : {
-          "type" : "PRIMITIVE",
-          "typeRef" : "java.lang.String",
-          "list" : false
-        }
-      }, {
-        "name" : "lastname",
-        "fieldName" : "lastname",
+        "name" : "empname",
+        "fieldName" : "empname",
         "optional" : false,
         "fieldType" : {
           "type" : "PRIMITIVE",
@@ -606,8 +629,8 @@
     "name" : "projectList",
     "description" : "List of projects",
     "version" : "V2",
-    "queryString" : "Select a.receiveddate, a.completeddate, a.fees,\nconcat(b.firstname, ' ', b.lastname) as preparer, \nconcat(c.firstname, ' ', c.lastname) as reviewer, \nconcat(d.firstname, ' ', d.lastname) as partner, \nconcat(h.firstname, ' ', h.lastname) as user,\ne.status, \nf.clientname, displayname, \ng.officename\nfrom projects as a\nleft join users as b on b.id = a.preparerid\nleft join users as c on c.id = a.reviewerid\nleft join users as d on d.id = a.partnerid\nleft join workstatus as e on e.id = a.statusid\nleft join clients as f on f.id = a.clientid\nleft join offices as g on g.id = a.officeid\nleft join users as h on h.id = a.currentuser",
-    "countQueryString" : "select count(*) from (Select a.receiveddate, a.completeddate, a.fees,\nconcat(b.firstname, ' ', b.lastname) as preparer, \nconcat(c.firstname, ' ', c.lastname) as reviewer, \nconcat(d.firstname, ' ', d.lastname) as partner, \nconcat(h.firstname, ' ', h.lastname) as user,\ne.status, \nf.clientname, displayname, \ng.officename\nfrom projects as a\nleft join users as b on b.id = a.preparerid\nleft join users as c on c.id = a.reviewerid\nleft join users as d on d.id = a.partnerid\nleft join workstatus as e on e.id = a.statusid\nleft join clients as f on f.id = a.clientid\nleft join offices as g on g.id = a.officeid\nleft join users as h on h.id = a.currentuser) wmTempTable",
+    "queryString" : "Select a.receiveddate, a.completeddate, a.fees,\nb.empname as preparer, \nc.empname as reviewer, \nd.empname as partner, \nh.empname as user,\ne.status, \nf.clientname, displayname, \ng.officename\nfrom projects as a\nleft join users as b on b.id = a.preparerid\nleft join users as c on c.id = a.reviewerid\nleft join users as d on d.id = a.partnerid\nleft join workstatus as e on e.id = a.statusid\nleft join clients as f on f.id = a.clientid\nleft join offices as g on g.id = a.officeid\nleft join users as h on h.id = a.currentuser",
+    "countQueryString" : "select count(*) from (Select a.receiveddate, a.completeddate, a.fees,\nb.empname as preparer, \nc.empname as reviewer, \nd.empname as partner, \nh.empname as user,\ne.status, \nf.clientname, displayname, \ng.officename\nfrom projects as a\nleft join users as b on b.id = a.preparerid\nleft join users as c on c.id = a.reviewerid\nleft join users as d on d.id = a.partnerid\nleft join workstatus as e on e.id = a.statusid\nleft join clients as f on f.id = a.clientid\nleft join offices as g on g.id = a.officeid\nleft join users as h on h.id = a.currentuser) wmTempTable",
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
@@ -728,8 +751,8 @@
     "name" : "reviewersList",
     "description" : "List of reviewers",
     "version" : "V2",
-    "queryString" : "select id, username, firstname, lastname from users where roleid = 2",
-    "countQueryString" : "select count(*) from (select id, username, firstname, lastname from users where roleid = 2) wmTempTable",
+    "queryString" : "select id, username, empname from users where roleid = 2",
+    "countQueryString" : "select count(*) from (select id, username, empname from users where roleid = 2) wmTempTable",
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
@@ -763,17 +786,8 @@
           "list" : false
         }
       }, {
-        "name" : "firstname",
-        "fieldName" : "firstname",
-        "optional" : false,
-        "fieldType" : {
-          "type" : "PRIMITIVE",
-          "typeRef" : "java.lang.String",
-          "list" : false
-        }
-      }, {
-        "name" : "lastname",
-        "fieldName" : "lastname",
+        "name" : "empname",
+        "fieldName" : "empname",
         "optional" : false,
         "fieldType" : {
           "type" : "PRIMITIVE",
@@ -937,8 +951,8 @@
     "name" : "usersList",
     "description" : "List of Users",
     "version" : "V2",
-    "queryString" : "select id, concat(firstname, ' ', lastname) as user from users \norder by user",
-    "countQueryString" : "select count(*) from (select id, concat(firstname, ' ', lastname) as user from users \norder by user) wmTempTable",
+    "queryString" : "select id, empname as user from users \norder by user",
+    "countQueryString" : "select count(*) from (select id, empname as user from users \norder by user) wmTempTable",
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
@@ -965,6 +979,47 @@
       }, {
         "name" : "user",
         "fieldName" : "user",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "usforms" : {
+    "name" : "usforms",
+    "description" : "list of forms",
+    "version" : "V2",
+    "queryString" : "select id,\nConcat(Case when f1040 <> 'N/A' Then f1040 Else '' End, Case when f3520 = 'Yes' Then ', 3520' Else '' End,  Case when f3520a = 'Yes' Then ', 3520A' Else '' End,  Case when fbar = 'Yes' Then ', FBAR' Else '' End,  Case when statereturn = 'Yes' Then ', State Returns' Else '' End) as usforms\nfrom projects",
+    "countQueryString" : "select count(*) from (select id,\nConcat(Case when f1040 <> 'N/A' Then f1040 Else '' End, Case when f3520 = 'Yes' Then ', 3520' Else '' End,  Case when f3520a = 'Yes' Then ', 3520A' Else '' End,  Case when fbar = 'Yes' Then ', FBAR' Else '' End,  Case when statereturn = 'Yes' Then ', State Returns' Else '' End) as usforms\nfrom projects) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.tax_projects.cmtaxprojects.models.query.UsformsResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "usforms",
+        "fieldName" : "usforms",
         "optional" : false,
         "fieldType" : {
           "type" : "PRIMITIVE",

@@ -183,18 +183,6 @@ public interface UsersService {
     Page<Map<String, Object>> getAggregatedValues(AggregationInfo aggregationInfo, Pageable pageable);
 
     /*
-     * Returns the associated projectsesForPreparerid for given Users id.
-     *
-     * @param id value of id; value cannot be null
-     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
-     * @return Paginated list of associated Projects instances.
-     *
-     * @see Pageable
-     * @see Page
-     */
-    Page<Projects> findAssociatedProjectsesForPreparerid(Integer id, Pageable pageable);
-
-    /*
      * Returns the associated projectsesForPartnerid for given Users id.
      *
      * @param id value of id; value cannot be null
@@ -229,5 +217,17 @@ public interface UsersService {
      * @see Page
      */
     Page<Projects> findAssociatedProjectsesForReviewerid(Integer id, Pageable pageable);
+
+    /*
+     * Returns the associated projectsesForPreparerid for given Users id.
+     *
+     * @param id value of id; value cannot be null
+     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
+     * @return Paginated list of associated Projects instances.
+     *
+     * @see Pageable
+     * @see Page
+     */
+    Page<Projects> findAssociatedProjectsesForPreparerid(Integer id, Pageable pageable);
 
 }

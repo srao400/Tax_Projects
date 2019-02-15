@@ -50,6 +50,10 @@ public interface CmtaxprojectsQueryExecutorService {
 
     void exportClientsList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
+    Page<DefaultStatusResponse> executeDefaultStatus(Pageable pageable);
+
+    void exportDefaultStatus(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
     Page<PreparersListResponse> executePreparersList(Pageable pageable);
 
     void exportPreparersList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
@@ -69,6 +73,10 @@ public interface CmtaxprojectsQueryExecutorService {
     Page<DuedateResponse> executeDuedate(Pageable pageable);
 
     void exportDuedate(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<UsformsResponse> executeUsforms(Pageable pageable);
+
+    void exportUsforms(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
     Page<DispatcherListResponse> executeDispatcherList(Pageable pageable);
 

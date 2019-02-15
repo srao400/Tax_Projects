@@ -46,33 +46,36 @@ public class Projects implements Serializable {
     private Date completeddate;
     private String description;
     private String comments;
-    private String _1040;
-    private String _3520;
-    private String _3520a;
+    private String f1040;
+    private String f3520;
+    private String f3520a;
     private String fbar;
     private String t1;
     private String statereturn;
     private String efileeligible;
-    private Date _1040exdate;
-    private Date _3520aexdate;
-    private Date stateexdate;
+    private Date exdate1040;
+    private Date exdate3520a;
+    private Date exdatestate;
     private String lastupdatedby;
     private Timestamp lastupdated;
     private Integer currentuser;
     private String billed;
     private Double fees;
     private Date duedate;
-    private String _3520aext;
-    private String stateext;
-    private String _1040ext;
+    private String ext3520a;
+    private String extstate;
+    private String ext1040;
     private Short taxyear;
-    private Users usersByPreparerid;
-    private Offices offices;
+    private String usforms;
+    private String dummy;
+    private String futureuse;
     private Users usersByPartnerid;
     private Users usersByDispatcherid;
     private Clients clients;
     private Users usersByReviewerid;
     private Workstatus workstatus;
+    private Users usersByPreparerid;
+    private Offices offices;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -211,31 +214,31 @@ public class Projects implements Serializable {
         this.comments = comments;
     }
 
-    @Column(name = "`1040`", nullable = true, length = 20)
-    public String get_1040() {
-        return this._1040;
+    @Column(name = "`f1040`", nullable = true, length = 20)
+    public String getF1040() {
+        return this.f1040;
     }
 
-    public void set_1040(String _1040) {
-        this._1040 = _1040;
+    public void setF1040(String f1040) {
+        this.f1040 = f1040;
     }
 
-    @Column(name = "`3520`", nullable = true, length = 20)
-    public String get_3520() {
-        return this._3520;
+    @Column(name = "`f3520`", nullable = true, length = 20)
+    public String getF3520() {
+        return this.f3520;
     }
 
-    public void set_3520(String _3520) {
-        this._3520 = _3520;
+    public void setF3520(String f3520) {
+        this.f3520 = f3520;
     }
 
-    @Column(name = "`3520a`", nullable = true, length = 20)
-    public String get_3520a() {
-        return this._3520a;
+    @Column(name = "`f3520a`", nullable = true, length = 20)
+    public String getF3520a() {
+        return this.f3520a;
     }
 
-    public void set_3520a(String _3520a) {
-        this._3520a = _3520a;
+    public void setF3520a(String f3520a) {
+        this.f3520a = f3520a;
     }
 
     @Column(name = "`fbar`", nullable = true, length = 20)
@@ -274,31 +277,31 @@ public class Projects implements Serializable {
         this.efileeligible = efileeligible;
     }
 
-    @Column(name = "`1040exdate`", nullable = true)
-    public Date get_1040exdate() {
-        return this._1040exdate;
+    @Column(name = "`exdate1040`", nullable = true)
+    public Date getExdate1040() {
+        return this.exdate1040;
     }
 
-    public void set_1040exdate(Date _1040exdate) {
-        this._1040exdate = _1040exdate;
+    public void setExdate1040(Date exdate1040) {
+        this.exdate1040 = exdate1040;
     }
 
-    @Column(name = "`3520aexdate`", nullable = true)
-    public Date get_3520aexdate() {
-        return this._3520aexdate;
+    @Column(name = "`exdate3520a`", nullable = true)
+    public Date getExdate3520a() {
+        return this.exdate3520a;
     }
 
-    public void set_3520aexdate(Date _3520aexdate) {
-        this._3520aexdate = _3520aexdate;
+    public void setExdate3520a(Date exdate3520a) {
+        this.exdate3520a = exdate3520a;
     }
 
-    @Column(name = "`stateexdate`", nullable = true)
-    public Date getStateexdate() {
-        return this.stateexdate;
+    @Column(name = "`exdatestate`", nullable = true)
+    public Date getExdatestate() {
+        return this.exdatestate;
     }
 
-    public void setStateexdate(Date stateexdate) {
-        this.stateexdate = stateexdate;
+    public void setExdatestate(Date exdatestate) {
+        this.exdatestate = exdatestate;
     }
 
     @Column(name = "`lastupdatedby`", nullable = true, length = 255)
@@ -355,31 +358,31 @@ public class Projects implements Serializable {
         this.duedate = duedate;
     }
 
-    @Column(name = "`3520aext`", nullable = true, length = 10)
-    public String get_3520aext() {
-        return this._3520aext;
+    @Column(name = "`ext3520a`", nullable = true, length = 10)
+    public String getExt3520a() {
+        return this.ext3520a;
     }
 
-    public void set_3520aext(String _3520aext) {
-        this._3520aext = _3520aext;
+    public void setExt3520a(String ext3520a) {
+        this.ext3520a = ext3520a;
     }
 
-    @Column(name = "`stateext`", nullable = true, length = 10)
-    public String getStateext() {
-        return this.stateext;
+    @Column(name = "`extstate`", nullable = true, length = 10)
+    public String getExtstate() {
+        return this.extstate;
     }
 
-    public void setStateext(String stateext) {
-        this.stateext = stateext;
+    public void setExtstate(String extstate) {
+        this.extstate = extstate;
     }
 
-    @Column(name = "`1040ext`", nullable = true, length = 10)
-    public String get_1040ext() {
-        return this._1040ext;
+    @Column(name = "`ext1040`", nullable = true, length = 10)
+    public String getExt1040() {
+        return this.ext1040;
     }
 
-    public void set_1040ext(String _1040ext) {
-        this._1040ext = _1040ext;
+    public void setExt1040(String ext1040) {
+        this.ext1040 = ext1040;
     }
 
     @Column(name = "`taxyear`", nullable = true, scale = 0, precision = 5)
@@ -391,34 +394,31 @@ public class Projects implements Serializable {
         this.taxyear = taxyear;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`preparerid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_users_TO_projects_ID_VZDUm`"))
-    @Fetch(FetchMode.JOIN)
-    public Users getUsersByPreparerid() {
-        return this.usersByPreparerid;
+    @Column(name = "`usforms`", nullable = true, length = 255)
+    public String getUsforms() {
+        return this.usforms;
     }
 
-    public void setUsersByPreparerid(Users usersByPreparerid) {
-        if(usersByPreparerid != null) {
-            this.preparerid = usersByPreparerid.getId();
-        }
-
-        this.usersByPreparerid = usersByPreparerid;
+    public void setUsforms(String usforms) {
+        this.usforms = usforms;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`officeid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_offices_TO_projects_IJdZtj`"))
-    @Fetch(FetchMode.JOIN)
-    public Offices getOffices() {
-        return this.offices;
+    @Column(name = "`Dummy`", nullable = true, length = 255)
+    public String getDummy() {
+        return this.dummy;
     }
 
-    public void setOffices(Offices offices) {
-        if(offices != null) {
-            this.officeid = offices.getId();
-        }
+    public void setDummy(String dummy) {
+        this.dummy = dummy;
+    }
 
-        this.offices = offices;
+    @Column(name = "`futureuse`", nullable = true, length = 255)
+    public String getFutureuse() {
+        return this.futureuse;
+    }
+
+    public void setFutureuse(String futureuse) {
+        this.futureuse = futureuse;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -494,6 +494,36 @@ public class Projects implements Serializable {
         }
 
         this.workstatus = workstatus;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`preparerid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_users_TO_projects_ID_VZDUm`"))
+    @Fetch(FetchMode.JOIN)
+    public Users getUsersByPreparerid() {
+        return this.usersByPreparerid;
+    }
+
+    public void setUsersByPreparerid(Users usersByPreparerid) {
+        if(usersByPreparerid != null) {
+            this.preparerid = usersByPreparerid.getId();
+        }
+
+        this.usersByPreparerid = usersByPreparerid;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`officeid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_offices_TO_projects_IJdZtj`"))
+    @Fetch(FetchMode.JOIN)
+    public Offices getOffices() {
+        return this.offices;
+    }
+
+    public void setOffices(Offices offices) {
+        if(offices != null) {
+            this.officeid = offices.getId();
+        }
+
+        this.offices = offices;
     }
 
     @Override

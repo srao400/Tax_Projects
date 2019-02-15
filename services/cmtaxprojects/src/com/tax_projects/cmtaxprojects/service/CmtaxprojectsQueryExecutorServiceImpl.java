@@ -212,6 +212,26 @@ public class CmtaxprojectsQueryExecutorServiceImpl implements CmtaxprojectsQuery
 
     @Transactional(value = "cmtaxprojectsTransactionManager", readOnly = true)
     @Override
+    public Page<DefaultStatusResponse> executeDefaultStatus(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("defaultStatus", params, DefaultStatusResponse.class, pageable);
+    }
+
+    @Transactional(value = "cmtaxprojectsTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportDefaultStatus(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("defaultStatus", params, DefaultStatusResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "cmtaxprojectsTransactionManager", readOnly = true)
+    @Override
     public Page<PreparersListResponse> executePreparersList(Pageable pageable) {
         Map<String, Object> params = new HashMap<>(0);
 
@@ -306,6 +326,26 @@ public class CmtaxprojectsQueryExecutorServiceImpl implements CmtaxprojectsQuery
 
 
         QueryProcedureInput queryInput = new QueryProcedureInput("duedate", params, DuedateResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "cmtaxprojectsTransactionManager", readOnly = true)
+    @Override
+    public Page<UsformsResponse> executeUsforms(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("usforms", params, UsformsResponse.class, pageable);
+    }
+
+    @Transactional(value = "cmtaxprojectsTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportUsforms(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("usforms", params, UsformsResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }

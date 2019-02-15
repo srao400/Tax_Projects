@@ -20,11 +20,8 @@ public class PartnersListResponse implements Serializable {
     @ColumnAlias("username")
     private String username;
 
-    @ColumnAlias("firstname")
-    private String firstname;
-
-    @ColumnAlias("lastname")
-    private String lastname;
+    @ColumnAlias("empname")
+    private String empname;
 
     public Integer getId() {
         return this.id;
@@ -42,20 +39,12 @@ public class PartnersListResponse implements Serializable {
         this.username = username;
     }
 
-    public String getFirstname() {
-        return this.firstname;
+    public String getEmpname() {
+        return this.empname;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return this.lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setEmpname(String empname) {
+        this.empname = empname;
     }
 
     @Override
@@ -65,15 +54,13 @@ public class PartnersListResponse implements Serializable {
         final PartnersListResponse partnersListResponse = (PartnersListResponse) o;
         return Objects.equals(getId(), partnersListResponse.getId()) &&
                 Objects.equals(getUsername(), partnersListResponse.getUsername()) &&
-                Objects.equals(getFirstname(), partnersListResponse.getFirstname()) &&
-                Objects.equals(getLastname(), partnersListResponse.getLastname());
+                Objects.equals(getEmpname(), partnersListResponse.getEmpname());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getId(),
                 getUsername(),
-                getFirstname(),
-                getLastname());
+                getEmpname());
     }
 }

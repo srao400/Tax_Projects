@@ -20,11 +20,8 @@ public class ReviewersListResponse implements Serializable {
     @ColumnAlias("username")
     private String username;
 
-    @ColumnAlias("firstname")
-    private String firstname;
-
-    @ColumnAlias("lastname")
-    private String lastname;
+    @ColumnAlias("empname")
+    private String empname;
 
     public Integer getId() {
         return this.id;
@@ -42,20 +39,12 @@ public class ReviewersListResponse implements Serializable {
         this.username = username;
     }
 
-    public String getFirstname() {
-        return this.firstname;
+    public String getEmpname() {
+        return this.empname;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return this.lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setEmpname(String empname) {
+        this.empname = empname;
     }
 
     @Override
@@ -65,15 +54,13 @@ public class ReviewersListResponse implements Serializable {
         final ReviewersListResponse reviewersListResponse = (ReviewersListResponse) o;
         return Objects.equals(getId(), reviewersListResponse.getId()) &&
                 Objects.equals(getUsername(), reviewersListResponse.getUsername()) &&
-                Objects.equals(getFirstname(), reviewersListResponse.getFirstname()) &&
-                Objects.equals(getLastname(), reviewersListResponse.getLastname());
+                Objects.equals(getEmpname(), reviewersListResponse.getEmpname());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getId(),
                 getUsername(),
-                getFirstname(),
-                getLastname());
+                getEmpname());
     }
 }

@@ -11,17 +11,14 @@ import java.util.Objects;
 
 import com.wavemaker.runtime.data.annotations.ColumnAlias;
 
-public class DispatcherListResponse implements Serializable {
+public class UsformsResponse implements Serializable {
 
 
     @ColumnAlias("id")
     private Integer id;
 
-    @ColumnAlias("username")
-    private String username;
-
-    @ColumnAlias("empname")
-    private String empname;
+    @ColumnAlias("usforms")
+    private String usforms;
 
     public Integer getId() {
         return this.id;
@@ -31,36 +28,26 @@ public class DispatcherListResponse implements Serializable {
         this.id = id;
     }
 
-    public String getUsername() {
-        return this.username;
+    public String getUsforms() {
+        return this.usforms;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmpname() {
-        return this.empname;
-    }
-
-    public void setEmpname(String empname) {
-        this.empname = empname;
+    public void setUsforms(String usforms) {
+        this.usforms = usforms;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof DispatcherListResponse)) return false;
-        final DispatcherListResponse dispatcherListResponse = (DispatcherListResponse) o;
-        return Objects.equals(getId(), dispatcherListResponse.getId()) &&
-                Objects.equals(getUsername(), dispatcherListResponse.getUsername()) &&
-                Objects.equals(getEmpname(), dispatcherListResponse.getEmpname());
+        if (!(o instanceof UsformsResponse)) return false;
+        final UsformsResponse usformsResponse = (UsformsResponse) o;
+        return Objects.equals(getId(), usformsResponse.getId()) &&
+                Objects.equals(getUsforms(), usformsResponse.getUsforms());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getId(),
-                getUsername(),
-                getEmpname());
+                getUsforms());
     }
 }

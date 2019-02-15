@@ -167,17 +167,6 @@ public class UsersServiceImpl implements UsersService {
 
     @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
     @Override
-    public Page<Projects> findAssociatedProjectsesForPreparerid(Integer id, Pageable pageable) {
-        LOGGER.debug("Fetching all associated projectsesForPreparerid");
-
-        StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("usersByPreparerid.id = '" + id + "'");
-
-        return projectsService.findAll(queryBuilder.toString(), pageable);
-    }
-
-    @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
-    @Override
     public Page<Projects> findAssociatedProjectsesForPartnerid(Integer id, Pageable pageable) {
         LOGGER.debug("Fetching all associated projectsesForPartnerid");
 
@@ -205,6 +194,17 @@ public class UsersServiceImpl implements UsersService {
 
         StringBuilder queryBuilder = new StringBuilder();
         queryBuilder.append("usersByReviewerid.id = '" + id + "'");
+
+        return projectsService.findAll(queryBuilder.toString(), pageable);
+    }
+
+    @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
+    @Override
+    public Page<Projects> findAssociatedProjectsesForPreparerid(Integer id, Pageable pageable) {
+        LOGGER.debug("Fetching all associated projectsesForPreparerid");
+
+        StringBuilder queryBuilder = new StringBuilder();
+        queryBuilder.append("usersByPreparerid.id = '" + id + "'");
 
         return projectsService.findAll(queryBuilder.toString(), pageable);
     }

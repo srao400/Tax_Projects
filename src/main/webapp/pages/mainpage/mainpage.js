@@ -33,19 +33,9 @@ Application.$controller("ClientsLiveForm1Controller", ["$scope",
     }
 ]);
 
-Application.$controller("UsersTable1Controller", ["$scope",
-    function($scope) {
-        "use strict";
-        $scope.ctrlScope = $scope;
-    }
-]);
 
-Application.$controller("UsersLiveForm1Controller", ["$scope",
-    function($scope) {
-        "use strict";
-        $scope.ctrlScope = $scope;
-    }
-]);
+
+
 
 Application.$controller("RolesTable1Controller", ["$scope",
     function($scope) {
@@ -95,4 +85,18 @@ Application.$controller("OfficesTable1Controller", ["$scope",
         "use strict";
         $scope.ctrlScope = $scope;
     }
+]);
+
+Application.$controller("executeFormsTable1Controller", ["$scope",
+	function($scope) {
+		"use strict";
+		$scope.ctrlScope = $scope;
+	}
+]);
+
+Application.$controller("UsersTable1Controller", ["$scope",
+	function($scope) {
+		"use strict";
+		$scope.ctrlScope = $scope;
+	}
 ]);

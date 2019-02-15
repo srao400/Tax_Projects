@@ -168,15 +168,6 @@ public class UsersController {
         return usersService.getAggregatedValues(aggregationInfo, pageable);
     }
 
-    @RequestMapping(value="/{id:.+}/projectsesForPreparerid", method=RequestMethod.GET)
-    @ApiOperation(value = "Gets the projectsesForPreparerid instance associated with the given id.")
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Page<Projects> findAssociatedProjectsesForPreparerid(@PathVariable("id") Integer id, Pageable pageable) {
-
-        LOGGER.debug("Fetching all associated projectsesForPreparerid");
-        return usersService.findAssociatedProjectsesForPreparerid(id, pageable);
-    }
-
     @RequestMapping(value="/{id:.+}/projectsesForPartnerid", method=RequestMethod.GET)
     @ApiOperation(value = "Gets the projectsesForPartnerid instance associated with the given id.")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
@@ -202,6 +193,15 @@ public class UsersController {
 
         LOGGER.debug("Fetching all associated projectsesForReviewerid");
         return usersService.findAssociatedProjectsesForReviewerid(id, pageable);
+    }
+
+    @RequestMapping(value="/{id:.+}/projectsesForPreparerid", method=RequestMethod.GET)
+    @ApiOperation(value = "Gets the projectsesForPreparerid instance associated with the given id.")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<Projects> findAssociatedProjectsesForPreparerid(@PathVariable("id") Integer id, Pageable pageable) {
+
+        LOGGER.debug("Fetching all associated projectsesForPreparerid");
+        return usersService.findAssociatedProjectsesForPreparerid(id, pageable);
     }
 
     /**

@@ -31,8 +31,7 @@ public class Users implements Serializable {
 
     private Integer id;
     private String username;
-    private String firstname;
-    private String lastname;
+    private String empname;
     private String password;
     private String phone;
     private String email;
@@ -60,22 +59,13 @@ public class Users implements Serializable {
         this.username = username;
     }
 
-    @Column(name = "`firstname`", nullable = true, length = 255)
-    public String getFirstname() {
-        return this.firstname;
+    @Column(name = "`empname`", nullable = true, length = 255)
+    public String getEmpname() {
+        return this.empname;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    @Column(name = "`lastname`", nullable = true, length = 255)
-    public String getLastname() {
-        return this.lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setEmpname(String empname) {
+        this.empname = empname;
     }
 
     @Column(name = "`password`", nullable = true, length = 255)

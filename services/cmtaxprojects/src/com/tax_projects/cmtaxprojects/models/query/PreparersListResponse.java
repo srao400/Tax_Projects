@@ -20,11 +20,8 @@ public class PreparersListResponse implements Serializable {
     @ColumnAlias("username")
     private String username;
 
-    @ColumnAlias("firstname")
-    private String firstname;
-
-    @ColumnAlias("lastname")
-    private String lastname;
+    @ColumnAlias("empname")
+    private String empname;
 
     public Integer getId() {
         return this.id;
@@ -42,20 +39,12 @@ public class PreparersListResponse implements Serializable {
         this.username = username;
     }
 
-    public String getFirstname() {
-        return this.firstname;
+    public String getEmpname() {
+        return this.empname;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return this.lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setEmpname(String empname) {
+        this.empname = empname;
     }
 
     @Override
@@ -65,15 +54,13 @@ public class PreparersListResponse implements Serializable {
         final PreparersListResponse preparersListResponse = (PreparersListResponse) o;
         return Objects.equals(getId(), preparersListResponse.getId()) &&
                 Objects.equals(getUsername(), preparersListResponse.getUsername()) &&
-                Objects.equals(getFirstname(), preparersListResponse.getFirstname()) &&
-                Objects.equals(getLastname(), preparersListResponse.getLastname());
+                Objects.equals(getEmpname(), preparersListResponse.getEmpname());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getId(),
                 getUsername(),
-                getFirstname(),
-                getLastname());
+                getEmpname());
     }
 }
