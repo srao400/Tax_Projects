@@ -1054,8 +1054,8 @@
     "name" : "usforms",
     "description" : "list of forms",
     "version" : "V2",
-    "queryString" : "select id,\nConcat(Case when f1040 <> 'N/A' Then f1040 Else '' End, Case when f3520 = 'Yes' Then ', 3520' Else '' End,  Case when f3520a = 'Yes' Then ', 3520A' Else '' End,  Case when fbar = 'Yes' Then ', FBAR' Else '' End,  Case when statereturn = 'Yes' Then ', State Returns' Else '' End) as usforms\nfrom projects",
-    "countQueryString" : "select count(*) from (select id,\nConcat(Case when f1040 <> 'N/A' Then f1040 Else '' End, Case when f3520 = 'Yes' Then ', 3520' Else '' End,  Case when f3520a = 'Yes' Then ', 3520A' Else '' End,  Case when fbar = 'Yes' Then ', FBAR' Else '' End,  Case when statereturn = 'Yes' Then ', State Returns' Else '' End) as usforms\nfrom projects) wmTempTable",
+    "queryString" : "select id,\nConcat(Case when f1040 <> 'N/A' Then f1040 Else '' End, Case when f3520 = 'Yes' Then ', 3520' Else '' End,  Case when f3520a = 'Yes' Then ', 3520A' Else '' End,  Case when fbar = 'Yes' Then ', FBAR' Else '' End,  Case when statereturn = 'Yes' Then ', State Returns' Else '' End) as usforms, \nCase When t1 <> 'N/A' Then t1 Else '' End as canadian\nfrom projects",
+    "countQueryString" : "select count(*) from (select id,\nConcat(Case when f1040 <> 'N/A' Then f1040 Else '' End, Case when f3520 = 'Yes' Then ', 3520' Else '' End,  Case when f3520a = 'Yes' Then ', 3520A' Else '' End,  Case when fbar = 'Yes' Then ', FBAR' Else '' End,  Case when statereturn = 'Yes' Then ', State Returns' Else '' End) as usforms, \nCase When t1 <> 'N/A' Then t1 Else '' End as canadian\nfrom projects) wmTempTable",
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
@@ -1082,6 +1082,15 @@
       }, {
         "name" : "usforms",
         "fieldName" : "usforms",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "canadian",
+        "fieldName" : "canadian",
         "optional" : false,
         "fieldType" : {
           "type" : "PRIMITIVE",

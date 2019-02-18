@@ -935,6 +935,19 @@
           "isRelated" : false,
           "defaultValue" : "",
           "scale" : 0
+        }, {
+          "fieldName" : "sequence",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "sequence",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 0,
+          "precision" : 10,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "defaultValue" : "",
+          "scale" : 0
         } ]
       }, {
         "fieldName" : "usersByPreparerid",
@@ -2096,6 +2109,19 @@
         "isRelated" : false,
         "defaultValue" : "",
         "scale" : 0
+      }, {
+        "fieldName" : "sequence",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "sequence",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
       } ],
       "entityName" : "Workstatus",
       "fullyQualifiedName" : "com.tax_projects.cmtaxprojects.Workstatus",
@@ -2883,7 +2909,7 @@
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
       "target" : "id",
-      "value" : "bind:Variables.getProjectId_var.dataSet[$i].max_id_",
+      "value" : "bind:Widgets.ProjectsLiveForm2.dataoutput.id",
       "type" : "integer"
     } ],
     "type" : "com.wavemaker.commons.wrapper.IntegerWrapper",

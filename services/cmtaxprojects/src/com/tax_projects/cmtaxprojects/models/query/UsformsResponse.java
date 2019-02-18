@@ -20,6 +20,9 @@ public class UsformsResponse implements Serializable {
     @ColumnAlias("usforms")
     private String usforms;
 
+    @ColumnAlias("canadian")
+    private String canadian;
+
     public Integer getId() {
         return this.id;
     }
@@ -36,18 +39,28 @@ public class UsformsResponse implements Serializable {
         this.usforms = usforms;
     }
 
+    public String getCanadian() {
+        return this.canadian;
+    }
+
+    public void setCanadian(String canadian) {
+        this.canadian = canadian;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof UsformsResponse)) return false;
         final UsformsResponse usformsResponse = (UsformsResponse) o;
         return Objects.equals(getId(), usformsResponse.getId()) &&
-                Objects.equals(getUsforms(), usformsResponse.getUsforms());
+                Objects.equals(getUsforms(), usformsResponse.getUsforms()) &&
+                Objects.equals(getCanadian(), usformsResponse.getCanadian());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getId(),
-                getUsforms());
+                getUsforms(),
+                getCanadian());
     }
 }

@@ -265,7 +265,8 @@ Where id = :id
     <sql-query name="usforms">
         <![CDATA[
         select id,
-Concat(Case when f1040 <> 'N/A' Then f1040 Else '' End, Case when f3520 = 'Yes' Then ', 3520' Else '' End,  Case when f3520a = 'Yes' Then ', 3520A' Else '' End,  Case when fbar = 'Yes' Then ', FBAR' Else '' End,  Case when statereturn = 'Yes' Then ', State Returns' Else '' End) as usforms
+Concat(Case when f1040 <> 'N/A' Then f1040 Else '' End, Case when f3520 = 'Yes' Then ', 3520' Else '' End,  Case when f3520a = 'Yes' Then ', 3520A' Else '' End,  Case when fbar = 'Yes' Then ', FBAR' Else '' End,  Case when statereturn = 'Yes' Then ', State Returns' Else '' End) as usforms, 
+Case When t1 <> 'N/A' Then t1 Else '' End as canadian
 from projects
         ]]>
     </sql-query>
@@ -273,7 +274,8 @@ from projects
     <sql-query name="usforms__count">
         <![CDATA[
         select count(*) from (select id,
-Concat(Case when f1040 <> 'N/A' Then f1040 Else '' End, Case when f3520 = 'Yes' Then ', 3520' Else '' End,  Case when f3520a = 'Yes' Then ', 3520A' Else '' End,  Case when fbar = 'Yes' Then ', FBAR' Else '' End,  Case when statereturn = 'Yes' Then ', State Returns' Else '' End) as usforms
+Concat(Case when f1040 <> 'N/A' Then f1040 Else '' End, Case when f3520 = 'Yes' Then ', 3520' Else '' End,  Case when f3520a = 'Yes' Then ', 3520A' Else '' End,  Case when fbar = 'Yes' Then ', FBAR' Else '' End,  Case when statereturn = 'Yes' Then ', State Returns' Else '' End) as usforms, 
+Case When t1 <> 'N/A' Then t1 Else '' End as canadian
 from projects) wmTempTable
         ]]>
     </sql-query>

@@ -32,6 +32,7 @@ public class Workstatus implements Serializable {
     private Integer id;
     private String status;
     private Integer notifyrole;
+    private Integer sequence;
     private Roles roles;
 
     @Id
@@ -61,6 +62,15 @@ public class Workstatus implements Serializable {
 
     public void setNotifyrole(Integer notifyrole) {
         this.notifyrole = notifyrole;
+    }
+
+    @Column(name = "`sequence`", nullable = true, scale = 0, precision = 10)
+    public Integer getSequence() {
+        return this.sequence;
+    }
+
+    public void setSequence(Integer sequence) {
+        this.sequence = sequence;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
