@@ -69,13 +69,13 @@ public class Projects implements Serializable {
     private String usforms;
     private String dummy;
     private String futureuse;
-    private Users usersByPartnerid;
-    private Users usersByDispatcherid;
     private Clients clients;
     private Users usersByReviewerid;
     private Workstatus workstatus;
     private Users usersByPreparerid;
     private Offices offices;
+    private Users usersByPartnerid;
+    private Users usersByDispatcherid;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -422,36 +422,6 @@ public class Projects implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`partnerid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_users_TO_projects_ID_FWtNv`"))
-    @Fetch(FetchMode.JOIN)
-    public Users getUsersByPartnerid() {
-        return this.usersByPartnerid;
-    }
-
-    public void setUsersByPartnerid(Users usersByPartnerid) {
-        if(usersByPartnerid != null) {
-            this.partnerid = usersByPartnerid.getId();
-        }
-
-        this.usersByPartnerid = usersByPartnerid;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`dispatcherid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_users_TO_projects_ID_0cZQm`"))
-    @Fetch(FetchMode.JOIN)
-    public Users getUsersByDispatcherid() {
-        return this.usersByDispatcherid;
-    }
-
-    public void setUsersByDispatcherid(Users usersByDispatcherid) {
-        if(usersByDispatcherid != null) {
-            this.dispatcherid = usersByDispatcherid.getId();
-        }
-
-        this.usersByDispatcherid = usersByDispatcherid;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`clientid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_clients_TO_projects_ItIrax`"))
     @Fetch(FetchMode.JOIN)
     public Clients getClients() {
@@ -524,6 +494,36 @@ public class Projects implements Serializable {
         }
 
         this.offices = offices;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`partnerid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_users_TO_projects_ID_FWtNv`"))
+    @Fetch(FetchMode.JOIN)
+    public Users getUsersByPartnerid() {
+        return this.usersByPartnerid;
+    }
+
+    public void setUsersByPartnerid(Users usersByPartnerid) {
+        if(usersByPartnerid != null) {
+            this.partnerid = usersByPartnerid.getId();
+        }
+
+        this.usersByPartnerid = usersByPartnerid;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`dispatcherid`", referencedColumnName = "`ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_users_TO_projects_ID_0cZQm`"))
+    @Fetch(FetchMode.JOIN)
+    public Users getUsersByDispatcherid() {
+        return this.usersByDispatcherid;
+    }
+
+    public void setUsersByDispatcherid(Users usersByDispatcherid) {
+        if(usersByDispatcherid != null) {
+            this.dispatcherid = usersByDispatcherid.getId();
+        }
+
+        this.usersByDispatcherid = usersByDispatcherid;
     }
 
     @Override

@@ -1,0 +1,21 @@
+<wm-page data-ng-controller="testpagePageController" pagetitle="Testpage" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-page-content columnwidth="12" name="page_content1">
+            <wm-table editmode="inline" name="WorkflowlogTable1" title="Workflowlog List" dataset="bind:Variables.CmtaxprojectsWorkflowlogData.dataSet" navigation="Basic" on-beforerowinsert="WorkflowlogTable1Beforerowinsert($event, $scope, $rowData, options)"
+                on-rowinsert="WorkflowlogTable1Rowinsert($event, $scope, $rowData)" on-rowupdate="WorkflowlogTable1Rowupdate($event, $scope, $rowData)">
+                <wm-table-column binding="projectid" caption="Projectid" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" required="true"></wm-table-column>
+                <wm-table-column binding="notifyid" caption="Notifyid" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" required="true"></wm-table-column>
+                <wm-table-column binding="statusid" caption="Statusid" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" required="true"></wm-table-column>
+                <wm-table-column binding="clientid" caption="Clientid" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" required="true"></wm-table-column>
+                <wm-table-column binding="id" caption="Id" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer" required="true"></wm-table-column>
+                <wm-table-column binding="notifydate" caption="Notifydate" generator="assigned" pcdisplay="true" mobiledisplay="true" type="datetime"></wm-table-column>
+                <wm-table-column binding="username" caption="Username" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                <wm-table-action widget-type="button" key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-table-action>
+                <wm-table-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-table-row-action>
+                <wm-table-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-table-row-action>
+            </wm-table>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

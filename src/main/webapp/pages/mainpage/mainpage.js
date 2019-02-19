@@ -19,6 +19,7 @@ Application.$controller("mainpagePageController", ["$scope", function($scope) {
 
 
 
+
 Application.$controller("ClientsTable1Controller", ["$scope",
     function($scope) {
         "use strict";
@@ -87,16 +88,27 @@ Application.$controller("OfficesTable1Controller", ["$scope",
     }
 ]);
 
-Application.$controller("executeFormsTable1Controller", ["$scope",
-	function($scope) {
-		"use strict";
-		$scope.ctrlScope = $scope;
-	}
-]);
+
 
 Application.$controller("UsersTable1Controller", ["$scope",
-	function($scope) {
-		"use strict";
-		$scope.ctrlScope = $scope;
-	}
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
+]);
+
+
+
+Application.$controller("ProjectsTable2_1Controller", ["$scope",
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
+]);
+
+Application.$controller("ProjectsLiveForm1Controller", ["$scope",
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
 ]);

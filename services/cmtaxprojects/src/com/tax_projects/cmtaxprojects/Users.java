@@ -37,6 +37,7 @@ public class Users implements Serializable {
     private String email;
     private Integer roleid;
     private String rememberme;
+    private String expired;
     private Roles roles;
 
     @Id
@@ -111,6 +112,15 @@ public class Users implements Serializable {
 
     public void setRememberme(String rememberme) {
         this.rememberme = rememberme;
+    }
+
+    @Column(name = "`expired`", nullable = true, length = 10)
+    public String getExpired() {
+        return this.expired;
+    }
+
+    public void setExpired(String expired) {
+        this.expired = expired;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)

@@ -168,24 +168,6 @@ public class UsersController {
         return usersService.getAggregatedValues(aggregationInfo, pageable);
     }
 
-    @RequestMapping(value="/{id:.+}/projectsesForPartnerid", method=RequestMethod.GET)
-    @ApiOperation(value = "Gets the projectsesForPartnerid instance associated with the given id.")
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Page<Projects> findAssociatedProjectsesForPartnerid(@PathVariable("id") Integer id, Pageable pageable) {
-
-        LOGGER.debug("Fetching all associated projectsesForPartnerid");
-        return usersService.findAssociatedProjectsesForPartnerid(id, pageable);
-    }
-
-    @RequestMapping(value="/{id:.+}/projectsesForDispatcherid", method=RequestMethod.GET)
-    @ApiOperation(value = "Gets the projectsesForDispatcherid instance associated with the given id.")
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Page<Projects> findAssociatedProjectsesForDispatcherid(@PathVariable("id") Integer id, Pageable pageable) {
-
-        LOGGER.debug("Fetching all associated projectsesForDispatcherid");
-        return usersService.findAssociatedProjectsesForDispatcherid(id, pageable);
-    }
-
     @RequestMapping(value="/{id:.+}/projectsesForReviewerid", method=RequestMethod.GET)
     @ApiOperation(value = "Gets the projectsesForReviewerid instance associated with the given id.")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
@@ -202,6 +184,24 @@ public class UsersController {
 
         LOGGER.debug("Fetching all associated projectsesForPreparerid");
         return usersService.findAssociatedProjectsesForPreparerid(id, pageable);
+    }
+
+    @RequestMapping(value="/{id:.+}/projectsesForPartnerid", method=RequestMethod.GET)
+    @ApiOperation(value = "Gets the projectsesForPartnerid instance associated with the given id.")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<Projects> findAssociatedProjectsesForPartnerid(@PathVariable("id") Integer id, Pageable pageable) {
+
+        LOGGER.debug("Fetching all associated projectsesForPartnerid");
+        return usersService.findAssociatedProjectsesForPartnerid(id, pageable);
+    }
+
+    @RequestMapping(value="/{id:.+}/projectsesForDispatcherid", method=RequestMethod.GET)
+    @ApiOperation(value = "Gets the projectsesForDispatcherid instance associated with the given id.")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<Projects> findAssociatedProjectsesForDispatcherid(@PathVariable("id") Integer id, Pageable pageable) {
+
+        LOGGER.debug("Fetching all associated projectsesForDispatcherid");
+        return usersService.findAssociatedProjectsesForDispatcherid(id, pageable);
     }
 
     /**

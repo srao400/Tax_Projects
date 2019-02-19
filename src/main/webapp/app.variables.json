@@ -15,6 +15,17 @@
     } ],
     "operation" : "toast"
   },
+  "goToPage_Admin" : {
+    "_id" : "wm-goToPage_Admin-wm.NavigationVariable-1550518908522",
+    "name" : "goToPage_Admin",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Admin",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_editpage" : {
     "_id" : "wm-goToPage_editpage-wm.NavigationVariable-1550100298136",
     "name" : "goToPage_editpage",
@@ -53,6 +64,17 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "setup",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_testpage" : {
+    "_id" : "wm-goToPage_testpage-wm.NavigationVariable-1550614098152",
+    "name" : "goToPage_testpage",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "testpage",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },

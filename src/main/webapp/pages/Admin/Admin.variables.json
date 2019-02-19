@@ -1,0 +1,38 @@
+{
+  "CmtaxprojectsEditUsers" : {
+    "_id" : "wm-CmtaxprojectsEditUsers-wm.ServiceVariable-1550518974373",
+    "name" : "CmtaxprojectsEditUsers",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.tax_projects.cmtaxprojects.Users",
+    "service" : "cmtaxprojects",
+    "operation" : "editUsers",
+    "operationId" : "UsersController_editUsers",
+    "operationType" : "put",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "Users"
+  },
+  "passwordReqs_var" : {
+    "_id" : "wm-passwordReqs_var-wm.Variable-1550519694319",
+    "name" : "passwordReqs_var",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : "Password requirements:\\n\\n1. Minimum length 8 characters\\n\\n2. Must contain 1 uppercase and 1 number\\n\\n3. Must contain 1 special character"
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  }
+}

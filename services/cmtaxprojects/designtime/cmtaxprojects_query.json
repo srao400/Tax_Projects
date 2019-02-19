@@ -435,7 +435,7 @@
     "name" : "insertWorkflowLog",
     "description" : "Insert row into workflow log",
     "version" : "V2",
-    "queryString" : "Insert IGNORE into workflowlog (statusid, notifyid, clientid, projectid, notifydate)\n    values(:statusid, \n    CASE\n        WHEN :notifyid = 1 THEN :preparerid\n        WHEN :notifyid = 2 THEN :reviewerid\n        WHEN :notifyid = 3 THEN :partnerid\n        WHEN :notifyid = 4 THEN :dispatcherid\n        END, \n        :clientid, :projectid, :currdate)",
+    "queryString" : "Insert IGNORE into workflowlog (statusid, notifyid, clientid, projectid, notifydate)\n    values(:statusid, \n    CASE\n        WHEN :notifyid = 1 THEN :preparerid\n        WHEN :notifyid = 2 THEN :reviewerid\n        WHEN :notifyid = 3 THEN :partnerid\n        WHEN :notifyid = 4 THEN :dispatcherid\n        ELSE 0 \n        END , \n        :clientid, :projectid, :currdate)",
     "countQueryString" : null,
     "nativeSql" : true,
     "fetchCount" : false,

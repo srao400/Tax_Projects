@@ -167,28 +167,6 @@ public class UsersServiceImpl implements UsersService {
 
     @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
     @Override
-    public Page<Projects> findAssociatedProjectsesForPartnerid(Integer id, Pageable pageable) {
-        LOGGER.debug("Fetching all associated projectsesForPartnerid");
-
-        StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("usersByPartnerid.id = '" + id + "'");
-
-        return projectsService.findAll(queryBuilder.toString(), pageable);
-    }
-
-    @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
-    @Override
-    public Page<Projects> findAssociatedProjectsesForDispatcherid(Integer id, Pageable pageable) {
-        LOGGER.debug("Fetching all associated projectsesForDispatcherid");
-
-        StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("usersByDispatcherid.id = '" + id + "'");
-
-        return projectsService.findAll(queryBuilder.toString(), pageable);
-    }
-
-    @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
-    @Override
     public Page<Projects> findAssociatedProjectsesForReviewerid(Integer id, Pageable pageable) {
         LOGGER.debug("Fetching all associated projectsesForReviewerid");
 
@@ -205,6 +183,28 @@ public class UsersServiceImpl implements UsersService {
 
         StringBuilder queryBuilder = new StringBuilder();
         queryBuilder.append("usersByPreparerid.id = '" + id + "'");
+
+        return projectsService.findAll(queryBuilder.toString(), pageable);
+    }
+
+    @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
+    @Override
+    public Page<Projects> findAssociatedProjectsesForPartnerid(Integer id, Pageable pageable) {
+        LOGGER.debug("Fetching all associated projectsesForPartnerid");
+
+        StringBuilder queryBuilder = new StringBuilder();
+        queryBuilder.append("usersByPartnerid.id = '" + id + "'");
+
+        return projectsService.findAll(queryBuilder.toString(), pageable);
+    }
+
+    @Transactional(readOnly = true, value = "cmtaxprojectsTransactionManager")
+    @Override
+    public Page<Projects> findAssociatedProjectsesForDispatcherid(Integer id, Pageable pageable) {
+        LOGGER.debug("Fetching all associated projectsesForDispatcherid");
+
+        StringBuilder queryBuilder = new StringBuilder();
+        queryBuilder.append("usersByDispatcherid.id = '" + id + "'");
 
         return projectsService.findAll(queryBuilder.toString(), pageable);
     }

@@ -1,4 +1,8 @@
 [ {
+  "name" : "Admin",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Common",
   "type" : "PARTIAL",
   "params" : [ ]
@@ -39,6 +43,10 @@
   "params" : [ ]
 }, {
   "name" : "setup",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "testpage",
   "type" : "PAGE",
   "params" : [ ]
 }, {

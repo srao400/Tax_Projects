@@ -131,7 +131,8 @@ LEFT JOIN projects as b on a.projectid = b.id) wmTempTable
         WHEN :notifyid = 2 THEN :reviewerid
         WHEN :notifyid = 3 THEN :partnerid
         WHEN :notifyid = 4 THEN :dispatcherid
-        END, 
+        ELSE 0 
+        END , 
         :clientid, :projectid, :SERVER__DATE_TIME__currdate)
         ]]>
     <query-param name="statusid" type="java.lang.Integer"/>
