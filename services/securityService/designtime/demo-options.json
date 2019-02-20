@@ -11,5 +11,29 @@
     "userid" : "srao",
     "password" : "Altoids5",
     "roles" : [ "admin" ]
+  }, {
+    "userid" : "nrishi",
+    "password" : "Welcome",
+    "roles" : [ "admin" ]
+  }, {
+    "userid" : "pkullar",
+    "password" : "Welcome",
+    "roles" : [ "admin" ]
+  }, {
+    "userid" : "dzhang",
+    "password" : "Welcome",
+    "roles" : [ "admin" ]
+  }, {
+    "userid" : "mzamani",
+    "password" : "Welcome",
+    "roles" : [ "admin" ]
+  }, {
+    "userid" : "imangat",
+    "password" : "Welcome",
+    "roles" : [ "admin" ]
+  }, {
+    "userid" : "rschmidt",
+    "password" : "Welcome",
+    "roles" : [ "admin" ]
   } ]
 }

@@ -271,6 +271,60 @@
                         </list>
                     </constructor-arg>
                 </bean>
+                <bean class="com.wavemaker.runtime.security.WMUser">
+                    <constructor-arg value="nrishi"/>
+                    <constructor-arg value="7b6a43524a12281668636a79425c32205754"/>
+                    <constructor-arg>
+                        <list>
+                            <value>ROLE_admin</value>
+                        </list>
+                    </constructor-arg>
+                </bean>
+                <bean class="com.wavemaker.runtime.security.WMUser">
+                    <constructor-arg value="pkullar"/>
+                    <constructor-arg value="7b6a43524a12281668636a79425c32205754"/>
+                    <constructor-arg>
+                        <list>
+                            <value>ROLE_admin</value>
+                        </list>
+                    </constructor-arg>
+                </bean>
+                <bean class="com.wavemaker.runtime.security.WMUser">
+                    <constructor-arg value="dzhang"/>
+                    <constructor-arg value="7b6a43524a12281668636a79425c32205754"/>
+                    <constructor-arg>
+                        <list>
+                            <value>ROLE_admin</value>
+                        </list>
+                    </constructor-arg>
+                </bean>
+                <bean class="com.wavemaker.runtime.security.WMUser">
+                    <constructor-arg value="mzamani"/>
+                    <constructor-arg value="7b6a43524a12281668636a79425c32205754"/>
+                    <constructor-arg>
+                        <list>
+                            <value>ROLE_admin</value>
+                        </list>
+                    </constructor-arg>
+                </bean>
+                <bean class="com.wavemaker.runtime.security.WMUser">
+                    <constructor-arg value="imangat"/>
+                    <constructor-arg value="7b6a43524a12281668636a79425c32205754"/>
+                    <constructor-arg>
+                        <list>
+                            <value>ROLE_admin</value>
+                        </list>
+                    </constructor-arg>
+                </bean>
+                <bean class="com.wavemaker.runtime.security.WMUser">
+                    <constructor-arg value="rschmidt"/>
+                    <constructor-arg value="7b6a43524a12281668636a79425c32205754"/>
+                    <constructor-arg>
+                        <list>
+                            <value>ROLE_admin</value>
+                        </list>
+                    </constructor-arg>
+                </bean>
             </list>
         </property>
     </bean>
