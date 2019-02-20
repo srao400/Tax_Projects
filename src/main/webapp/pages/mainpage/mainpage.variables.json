@@ -2137,7 +2137,7 @@
     "liveSource" : "cmtaxprojects",
     "ignoreCase" : true,
     "matchMode" : "startignorecase",
-    "orderBy" : "id asc",
+    "orderBy" : "sequence asc",
     "propertiesMap" : {
       "columns" : [ {
         "fieldName" : "roles",
@@ -2242,7 +2242,18 @@
       "watchOn" : "CmtaxprojectsRolesData",
       "package" : "com.tax_projects.cmtaxprojects.Workstatus"
     } ],
-    "filterExpressions" : { },
+    "filterFields" : { },
+    "filterExpressions" : {
+      "condition" : "AND",
+      "rules" : [ {
+        "target" : "",
+        "type" : "string",
+        "matchMode" : "anywhereignorecase",
+        "value" : "",
+        "required" : false,
+        "secondvalue" : ""
+      } ]
+    },
     "package" : "com.tax_projects.cmtaxprojects.Workstatus"
   },
   "country_var" : {

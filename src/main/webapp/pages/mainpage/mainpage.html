@@ -52,7 +52,7 @@
                                         <wm-gridcolumn columnwidth="6" name="gridcolumn80">
                                             <wm-form-field name="workstatus" displayname="Status" show="true" primary-key="false" generator="assigned" period="false" key="workstatus" type="list" is-related="true" readonly="false" required="true" widget="select"
                                                 placeholder="Select value" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
-                                                displayexpression="status" orderby="id:asc" on-change="workstatusChange($event, $scope, newVal, oldVal)" defaultvalue="bind:Variables.defaulStatus_var.firstRecord"></wm-form-field>
+                                                displayexpression="status" orderby="sequence:asc" on-change="workstatusChange($event, $scope, newVal, oldVal)" defaultvalue="bind:Variables.defaulStatus_var.firstRecord"></wm-form-field>
                                         </wm-gridcolumn>
                                     </wm-gridrow>
                                     <wm-gridrow name="gridrow45">
@@ -188,6 +188,7 @@
                                 <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" action="Variables.getProjectId_var.invoke();Variables.updateColumnUSforms_var.invoke();Variables.insertWorkflowLog_var.invoke()"
                                     disabled="false" type="submit" update-mode="true"></wm-form-action>
                                 <wm-form-action key="new" display-name="New" show="true" class="form-new btn-success" iconclass="wi wi-plus" title="New" action="new()" shortcutkey="" disabled="false" type="button" update-mode="false"></wm-form-action>
+                                <wm-form-action key="reset" class="form-reset btn-secondary" iconclass="wi wi-refresh" action="reset()" display-name="Reset" show="true" type="button" update-mode="true" shortcutkey=""></wm-form-action>
                             </wm-liveform>
                         </wm-livetable>
                     </wm-container>
