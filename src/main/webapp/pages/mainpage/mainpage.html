@@ -29,7 +29,7 @@
                                 <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action>
                             </wm-table>
                             <wm-liveform errormessage="" title="Projects Info" formlayout="dialog" iconclass="wi wi-edit" name="ProjectsLiveForm2" dataset="bind:Variables.CmtaxprojectsProjectsData.dataSet" captionalign="left" captionposition="top" formdata="bind:Variables.defaultStatus_var.dataSet"
-                                on-success="Variables.updateColumnUSforms_var.invoke()" on-beforeservicecall="Variables.updateColumnUSforms_var.invoke()">
+                                on-success="Variables.updateColumnUSforms_var.invoke()" on-beforeservicecall="Variables.updateColumnUSforms_var.invoke()" width="80%">
                                 <wm-layoutgrid columns="4" name="layoutgrid7">
                                     <wm-gridrow name="gridrow48">
                                         <wm-gridcolumn columnwidth="3" name="gridcolumn110">
@@ -365,7 +365,7 @@
                         </wm-buttongroup>
                     </wm-form>
                 </wm-tabpane>
-                <wm-tabpane name="tabpane10" show="true" disabled="false" title="Projects 1"></wm-tabpane>
+                <wm-tabpane name="tabpane10" show="false" disabled="false" title="Projects 1"></wm-tabpane>
             </wm-tabs>
         </wm-page-content>
     </wm-content>
