@@ -67,8 +67,12 @@ public class Projects implements Serializable {
     private String ext1040;
     private Short taxyear;
     private String usforms;
-    private String dummy;
-    private String futureuse;
+    private String future1;
+    private String future2;
+    private String future3;
+    private String future4;
+    private String future5;
+    private String future6;
     private Clients clients;
     private Users usersByReviewerid;
     private Workstatus workstatus;
@@ -403,22 +407,58 @@ public class Projects implements Serializable {
         this.usforms = usforms;
     }
 
-    @Column(name = "`Dummy`", nullable = true, length = 255)
-    public String getDummy() {
-        return this.dummy;
+    @Column(name = "`future1`", nullable = true, length = 255)
+    public String getFuture1() {
+        return this.future1;
     }
 
-    public void setDummy(String dummy) {
-        this.dummy = dummy;
+    public void setFuture1(String future1) {
+        this.future1 = future1;
     }
 
-    @Column(name = "`futureuse`", nullable = true, length = 255)
-    public String getFutureuse() {
-        return this.futureuse;
+    @Column(name = "`future2`", nullable = true, length = 255)
+    public String getFuture2() {
+        return this.future2;
     }
 
-    public void setFutureuse(String futureuse) {
-        this.futureuse = futureuse;
+    public void setFuture2(String future2) {
+        this.future2 = future2;
+    }
+
+    @Column(name = "`future3`", nullable = true, length = 255)
+    public String getFuture3() {
+        return this.future3;
+    }
+
+    public void setFuture3(String future3) {
+        this.future3 = future3;
+    }
+
+    @Column(name = "`future4`", nullable = true, length = 255)
+    public String getFuture4() {
+        return this.future4;
+    }
+
+    public void setFuture4(String future4) {
+        this.future4 = future4;
+    }
+
+    @Column(name = "`future5`", nullable = true, length = 255)
+    public String getFuture5() {
+        return this.future5;
+    }
+
+    public void setFuture5(String future5) {
+        this.future5 = future5;
+    }
+
+    @Column(name = "`future6`", nullable = true, length = 255)
+    public String getFuture6() {
+        return this.future6;
+    }
+
+    public void setFuture6(String future6) {
+        this.future6 = future6;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)

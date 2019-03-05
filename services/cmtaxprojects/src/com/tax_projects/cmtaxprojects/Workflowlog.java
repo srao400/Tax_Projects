@@ -30,6 +30,7 @@ public class Workflowlog implements Serializable {
     private int id;
     private LocalDateTime notifydate;
     private String username;
+    private String email;
 
     @Id
     @Column(name = "`clientid`", nullable = false, scale = 0, precision = 10)
@@ -96,6 +97,15 @@ public class Workflowlog implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Column(name = "`email`", nullable = true, length = 255)
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 

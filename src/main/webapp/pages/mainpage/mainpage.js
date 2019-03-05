@@ -96,19 +96,3 @@ Application.$controller("UsersTable1Controller", ["$scope",
         $scope.ctrlScope = $scope;
     }
 ]);
-
-
-
-Application.$controller("ProjectsTable2_1Controller", ["$scope",
-    function($scope) {
-        "use strict";
-        $scope.ctrlScope = $scope;
-    }
-]);
-
-Application.$controller("ProjectsLiveForm1Controller", ["$scope",
-    function($scope) {
-        "use strict";
-        $scope.ctrlScope = $scope;
-    }
-]);

@@ -7,6 +7,7 @@ package com.tax_projects.cmtaxprojects.models.query;
 
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.Objects;
 
@@ -18,11 +19,56 @@ public class ProjectListResponse implements Serializable {
     @ColumnAlias("receiveddate")
     private Date receiveddate;
 
+    @ColumnAlias("duedate")
+    private Date duedate;
+
     @ColumnAlias("completeddate")
     private Date completeddate;
 
     @ColumnAlias("fees")
     private Double fees;
+
+    @ColumnAlias("t1")
+    private String t1;
+
+    @ColumnAlias("f1040")
+    private String f1040;
+
+    @ColumnAlias("f3520")
+    private String f3520;
+
+    @ColumnAlias("f3520a")
+    private String f3520a;
+
+    @ColumnAlias("fbar")
+    private String fbar;
+
+    @ColumnAlias("statereturn")
+    private String statereturn;
+
+    @ColumnAlias("efileeligible")
+    private String efileeligible;
+
+    @ColumnAlias("billed")
+    private String billed;
+
+    @ColumnAlias("--a.fees")
+    private BigDecimal a_fees;
+
+    @ColumnAlias("ext1040")
+    private String ext1040;
+
+    @ColumnAlias("ext3520a")
+    private String ext3520a;
+
+    @ColumnAlias("extstate")
+    private String extstate;
+
+    @ColumnAlias("taxyear")
+    private Short taxyear;
+
+    @ColumnAlias("usforms")
+    private String usforms;
 
     @ColumnAlias("preparer")
     private String preparer;
@@ -33,8 +79,8 @@ public class ProjectListResponse implements Serializable {
     @ColumnAlias("partner")
     private String partner;
 
-    @ColumnAlias("user")
-    private String user;
+    @ColumnAlias("dispatcher")
+    private String dispatcher;
 
     @ColumnAlias("status")
     private String status;
@@ -56,6 +102,14 @@ public class ProjectListResponse implements Serializable {
         this.receiveddate = receiveddate;
     }
 
+    public Date getDuedate() {
+        return this.duedate;
+    }
+
+    public void setDuedate(Date duedate) {
+        this.duedate = duedate;
+    }
+
     public Date getCompleteddate() {
         return this.completeddate;
     }
@@ -70,6 +124,118 @@ public class ProjectListResponse implements Serializable {
 
     public void setFees(Double fees) {
         this.fees = fees;
+    }
+
+    public String getT1() {
+        return this.t1;
+    }
+
+    public void setT1(String t1) {
+        this.t1 = t1;
+    }
+
+    public String getF1040() {
+        return this.f1040;
+    }
+
+    public void setF1040(String f1040) {
+        this.f1040 = f1040;
+    }
+
+    public String getF3520() {
+        return this.f3520;
+    }
+
+    public void setF3520(String f3520) {
+        this.f3520 = f3520;
+    }
+
+    public String getF3520a() {
+        return this.f3520a;
+    }
+
+    public void setF3520a(String f3520a) {
+        this.f3520a = f3520a;
+    }
+
+    public String getFbar() {
+        return this.fbar;
+    }
+
+    public void setFbar(String fbar) {
+        this.fbar = fbar;
+    }
+
+    public String getStatereturn() {
+        return this.statereturn;
+    }
+
+    public void setStatereturn(String statereturn) {
+        this.statereturn = statereturn;
+    }
+
+    public String getEfileeligible() {
+        return this.efileeligible;
+    }
+
+    public void setEfileeligible(String efileeligible) {
+        this.efileeligible = efileeligible;
+    }
+
+    public String getBilled() {
+        return this.billed;
+    }
+
+    public void setBilled(String billed) {
+        this.billed = billed;
+    }
+
+    public BigDecimal getA_fees() {
+        return this.a_fees;
+    }
+
+    public void setA_fees(BigDecimal a_fees) {
+        this.a_fees = a_fees;
+    }
+
+    public String getExt1040() {
+        return this.ext1040;
+    }
+
+    public void setExt1040(String ext1040) {
+        this.ext1040 = ext1040;
+    }
+
+    public String getExt3520a() {
+        return this.ext3520a;
+    }
+
+    public void setExt3520a(String ext3520a) {
+        this.ext3520a = ext3520a;
+    }
+
+    public String getExtstate() {
+        return this.extstate;
+    }
+
+    public void setExtstate(String extstate) {
+        this.extstate = extstate;
+    }
+
+    public Short getTaxyear() {
+        return this.taxyear;
+    }
+
+    public void setTaxyear(Short taxyear) {
+        this.taxyear = taxyear;
+    }
+
+    public String getUsforms() {
+        return this.usforms;
+    }
+
+    public void setUsforms(String usforms) {
+        this.usforms = usforms;
     }
 
     public String getPreparer() {
@@ -96,12 +262,12 @@ public class ProjectListResponse implements Serializable {
         this.partner = partner;
     }
 
-    public String getUser() {
-        return this.user;
+    public String getDispatcher() {
+        return this.dispatcher;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setDispatcher(String dispatcher) {
+        this.dispatcher = dispatcher;
     }
 
     public String getStatus() {
@@ -142,12 +308,27 @@ public class ProjectListResponse implements Serializable {
         if (!(o instanceof ProjectListResponse)) return false;
         final ProjectListResponse projectListResponse = (ProjectListResponse) o;
         return Objects.equals(getReceiveddate(), projectListResponse.getReceiveddate()) &&
+                Objects.equals(getDuedate(), projectListResponse.getDuedate()) &&
                 Objects.equals(getCompleteddate(), projectListResponse.getCompleteddate()) &&
                 Objects.equals(getFees(), projectListResponse.getFees()) &&
+                Objects.equals(getT1(), projectListResponse.getT1()) &&
+                Objects.equals(getF1040(), projectListResponse.getF1040()) &&
+                Objects.equals(getF3520(), projectListResponse.getF3520()) &&
+                Objects.equals(getF3520a(), projectListResponse.getF3520a()) &&
+                Objects.equals(getFbar(), projectListResponse.getFbar()) &&
+                Objects.equals(getStatereturn(), projectListResponse.getStatereturn()) &&
+                Objects.equals(getEfileeligible(), projectListResponse.getEfileeligible()) &&
+                Objects.equals(getBilled(), projectListResponse.getBilled()) &&
+                Objects.equals(getA_fees(), projectListResponse.getA_fees()) &&
+                Objects.equals(getExt1040(), projectListResponse.getExt1040()) &&
+                Objects.equals(getExt3520a(), projectListResponse.getExt3520a()) &&
+                Objects.equals(getExtstate(), projectListResponse.getExtstate()) &&
+                Objects.equals(getTaxyear(), projectListResponse.getTaxyear()) &&
+                Objects.equals(getUsforms(), projectListResponse.getUsforms()) &&
                 Objects.equals(getPreparer(), projectListResponse.getPreparer()) &&
                 Objects.equals(getReviewer(), projectListResponse.getReviewer()) &&
                 Objects.equals(getPartner(), projectListResponse.getPartner()) &&
-                Objects.equals(getUser(), projectListResponse.getUser()) &&
+                Objects.equals(getDispatcher(), projectListResponse.getDispatcher()) &&
                 Objects.equals(getStatus(), projectListResponse.getStatus()) &&
                 Objects.equals(getClientname(), projectListResponse.getClientname()) &&
                 Objects.equals(getDisplayname(), projectListResponse.getDisplayname()) &&
@@ -157,12 +338,27 @@ public class ProjectListResponse implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(getReceiveddate(),
+                getDuedate(),
                 getCompleteddate(),
                 getFees(),
+                getT1(),
+                getF1040(),
+                getF3520(),
+                getF3520a(),
+                getFbar(),
+                getStatereturn(),
+                getEfileeligible(),
+                getBilled(),
+                getA_fees(),
+                getExt1040(),
+                getExt3520a(),
+                getExtstate(),
+                getTaxyear(),
+                getUsforms(),
                 getPreparer(),
                 getReviewer(),
                 getPartner(),
-                getUser(),
+                getDispatcher(),
                 getStatus(),
                 getClientname(),
                 getDisplayname(),

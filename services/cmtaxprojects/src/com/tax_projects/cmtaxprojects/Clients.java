@@ -126,7 +126,7 @@ public class Clients implements Serializable {
         this.phone = phone;
     }
 
-    @Column(name = "`email`", nullable = true, length = 255)
+    @Column(name = "`email`", nullable = true, length = 254)
     public String getEmail() {
         return this.email;
     }

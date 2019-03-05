@@ -4,13 +4,16 @@
 <hibernate-mapping>
     <sql-query name="projectList">
         <![CDATA[
-        Select a.receiveddate, a.completeddate, a.fees,
+        Select a.receiveddate, a.duedate, a.completeddate, a.fees, a.t1, a.f1040, a.f3520, a.f3520a, a.fbar,
+a.statereturn, a.efileeligible, a.billed, --a.fees, 
+a.ext1040, a.ext3520a, a.extstate, 
+a.taxyear, a.usforms,
 b.empname as preparer, 
 c.empname as reviewer, 
 d.empname as partner, 
-h.empname as user,
+h.empname as dispatcher,
 e.status, 
-f.clientname, displayname, 
+f.clientname, f.displayname, 
 g.officename
 from projects as a
 left join users as b on b.id = a.preparerid
@@ -19,19 +22,22 @@ left join users as d on d.id = a.partnerid
 left join workstatus as e on e.id = a.statusid
 left join clients as f on f.id = a.clientid
 left join offices as g on g.id = a.officeid
-left join users as h on h.id = a.currentuser
+left join users as h on h.id = a.dispatcherid
         ]]>
     </sql-query>
 
     <sql-query name="projectList__count">
         <![CDATA[
-        select count(*) from (Select a.receiveddate, a.completeddate, a.fees,
+        select count(*) from (Select a.receiveddate, a.duedate, a.completeddate, a.fees, a.t1, a.f1040, a.f3520, a.f3520a, a.fbar,
+a.statereturn, a.efileeligible, a.billed, --a.fees, 
+a.ext1040, a.ext3520a, a.extstate, 
+a.taxyear, a.usforms,
 b.empname as preparer, 
 c.empname as reviewer, 
 d.empname as partner, 
-h.empname as user,
+h.empname as dispatcher,
 e.status, 
-f.clientname, displayname, 
+f.clientname, f.displayname, 
 g.officename
 from projects as a
 left join users as b on b.id = a.preparerid
@@ -40,7 +46,7 @@ left join users as d on d.id = a.partnerid
 left join workstatus as e on e.id = a.statusid
 left join clients as f on f.id = a.clientid
 left join offices as g on g.id = a.officeid
-left join users as h on h.id = a.currentuser) wmTempTable
+left join users as h on h.id = a.dispatcherid) wmTempTable
         ]]>
     </sql-query>
 

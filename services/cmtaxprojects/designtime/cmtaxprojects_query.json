@@ -629,8 +629,8 @@
     "name" : "projectList",
     "description" : "List of projects",
     "version" : "V2",
-    "queryString" : "Select a.receiveddate, a.completeddate, a.fees,\nb.empname as preparer, \nc.empname as reviewer, \nd.empname as partner, \nh.empname as user,\ne.status, \nf.clientname, displayname, \ng.officename\nfrom projects as a\nleft join users as b on b.id = a.preparerid\nleft join users as c on c.id = a.reviewerid\nleft join users as d on d.id = a.partnerid\nleft join workstatus as e on e.id = a.statusid\nleft join clients as f on f.id = a.clientid\nleft join offices as g on g.id = a.officeid\nleft join users as h on h.id = a.currentuser",
-    "countQueryString" : "select count(*) from (Select a.receiveddate, a.completeddate, a.fees,\nb.empname as preparer, \nc.empname as reviewer, \nd.empname as partner, \nh.empname as user,\ne.status, \nf.clientname, displayname, \ng.officename\nfrom projects as a\nleft join users as b on b.id = a.preparerid\nleft join users as c on c.id = a.reviewerid\nleft join users as d on d.id = a.partnerid\nleft join workstatus as e on e.id = a.statusid\nleft join clients as f on f.id = a.clientid\nleft join offices as g on g.id = a.officeid\nleft join users as h on h.id = a.currentuser) wmTempTable",
+    "queryString" : "Select a.receiveddate, a.duedate, a.completeddate, a.fees, a.t1, a.f1040, a.f3520, a.f3520a, a.fbar,\na.statereturn, a.efileeligible, a.billed, --a.fees, \na.ext1040, a.ext3520a, a.extstate, \na.taxyear, a.usforms,\nb.empname as preparer, \nc.empname as reviewer, \nd.empname as partner, \nh.empname as dispatcher,\ne.status, \nf.clientname, f.displayname, \ng.officename\nfrom projects as a\nleft join users as b on b.id = a.preparerid\nleft join users as c on c.id = a.reviewerid\nleft join users as d on d.id = a.partnerid\nleft join workstatus as e on e.id = a.statusid\nleft join clients as f on f.id = a.clientid\nleft join offices as g on g.id = a.officeid\nleft join users as h on h.id = a.dispatcherid",
+    "countQueryString" : "select count(*) from (Select a.receiveddate, a.duedate, a.completeddate, a.fees, a.t1, a.f1040, a.f3520, a.f3520a, a.fbar,\na.statereturn, a.efileeligible, a.billed, --a.fees, \na.ext1040, a.ext3520a, a.extstate, \na.taxyear, a.usforms,\nb.empname as preparer, \nc.empname as reviewer, \nd.empname as partner, \nh.empname as dispatcher,\ne.status, \nf.clientname, f.displayname, \ng.officename\nfrom projects as a\nleft join users as b on b.id = a.preparerid\nleft join users as c on c.id = a.reviewerid\nleft join users as d on d.id = a.partnerid\nleft join workstatus as e on e.id = a.statusid\nleft join clients as f on f.id = a.clientid\nleft join offices as g on g.id = a.officeid\nleft join users as h on h.id = a.dispatcherid) wmTempTable",
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
@@ -655,6 +655,15 @@
           "list" : false
         }
       }, {
+        "name" : "duedate",
+        "fieldName" : "duedate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
         "name" : "completeddate",
         "fieldName" : "completeddate",
         "optional" : false,
@@ -670,6 +679,132 @@
         "fieldType" : {
           "type" : "PRIMITIVE",
           "typeRef" : "java.lang.Double",
+          "list" : false
+        }
+      }, {
+        "name" : "t1",
+        "fieldName" : "t1",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "f1040",
+        "fieldName" : "f1040",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "f3520",
+        "fieldName" : "f3520",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "f3520a",
+        "fieldName" : "f3520a",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "fbar",
+        "fieldName" : "fbar",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "statereturn",
+        "fieldName" : "statereturn",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "efileeligible",
+        "fieldName" : "efileeligible",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "billed",
+        "fieldName" : "billed",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "--a.fees",
+        "fieldName" : "a_fees",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      }, {
+        "name" : "ext1040",
+        "fieldName" : "ext1040",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "ext3520a",
+        "fieldName" : "ext3520a",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "extstate",
+        "fieldName" : "extstate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "taxyear",
+        "fieldName" : "taxyear",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      }, {
+        "name" : "usforms",
+        "fieldName" : "usforms",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
           "list" : false
         }
       }, {
@@ -700,8 +835,8 @@
           "list" : false
         }
       }, {
-        "name" : "user",
-        "fieldName" : "user",
+        "name" : "dispatcher",
+        "fieldName" : "dispatcher",
         "optional" : false,
         "fieldType" : {
           "type" : "PRIMITIVE",
