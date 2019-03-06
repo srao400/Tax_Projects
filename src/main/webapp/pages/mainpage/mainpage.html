@@ -29,7 +29,7 @@
                         <wm-livetable formlayout="dialog" name="ProjectsLiveTable2">
                             <wm-table gridfirstrowselect="true" editmode="dialog" name="ProjectsTable2" title="Projects List" dataset="bind:Variables.CmtaxprojectsProjectsData.dataSet" navigation="Pager" filtermode="search" exportformat="EXCEL,CSV" exportdatasize="2000">
                                 <wm-table-column binding="id" caption="Id" width="40px" primary-key="true" edit-widget-type="number" type="integer" generator="identity" readonly="true" show="true"></wm-table-column>
-                                <wm-table-column binding="clients.displayname" caption="Client name" primary-key="false" edit-widget-type="text" related-entity-name="Clients" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
+                                <wm-table-column binding="clients.clientname" caption="Client name" primary-key="false" edit-widget-type="text" related-entity-name="Clients" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
                                 <wm-table-column binding="offices.officename" caption="Office" width="120px" primary-key="false" edit-widget-type="text" related-entity-name="Offices" type="string" generator="assigned" readonly="true"
                                     show="true"></wm-table-column>
                                 <wm-table-column binding="workstatus.status" caption="Status" primary-key="false" edit-widget-type="text" related-entity-name="Workstatus" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>

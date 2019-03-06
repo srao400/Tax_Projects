@@ -4373,7 +4373,7 @@
     "dataSet" : [ {
       "dataValue" : "T1"
     }, {
-      "dataValue" : "T1 NR"
+      "dataValue" : "T1NR"
     }, {
       "dataValue" : "N/A"
     } ],
@@ -4412,9 +4412,9 @@
     "dataSet" : [ {
       "dataValue" : "1040"
     }, {
-      "dataValue" : "1040 NR"
+      "dataValue" : "1040NR"
     }, {
-      "dataValue" : "1040 Dual"
+      "dataValue" : "1040Dual"
     }, {
       "dataValue" : "N/A"
     } ],
